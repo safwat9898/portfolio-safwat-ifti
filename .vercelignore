@@ -1,0 +1,12 @@
+# Primary exclusion for dependencies
+node_modules/
+
+# Ignore local Vercel CLI cache/data
+.vercel/
+
+# Ignore the local Git history and repository files
+.git/
+
+# Ignore other common local files
+package-lock.json
+yarn.lock

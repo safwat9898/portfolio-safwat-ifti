@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rudolph Christmas Lights — Case Study</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Config for Dark Mode and Tailwind Customizations -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#111111',
+                        light: '#ffffff',
+                        
+                    }
+                }
+            }
+        }
+        
+        // Simple dark mode toggle logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.classList.add(currentTheme);
+
+            const toggle = document.getElementById('theme-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    const newTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+                    localStorage.setItem('theme', newTheme);
+                });
+            }
+        });
+    </script>
+    </head>
+
+<body class="bg-white text-dark dark:bg-dark dark:text-light antialiased transition-colors duration-300 font-sans">
+<!-- HEADER / NAVIGATION -->
+
+    <header class="sticky top-0 w-full z-50 bg-white/95 dark:bg-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-lg font-bold tracking-tight hover:opacity-75 transition-opacity">
+                 ← Homepage
+
+            </a>
+            <button id="theme-toggle" class="w-8 h-8 flex items-center justify-center border border-current rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors" title="Toggle Theme">
+                 <div class="w-3 h-3 rounded-full bg-current"></div>
+             </button>
+
+        </div>
+
+    </header>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #111111;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Smooth reveal animation classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom class for the massive images */
+        .cinema-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            background-color: #f3f4f6; /* Placeholder gray */
+        }
+    </style>
+    
+
+
+    <main class="pt-32 pb-32">
+
+        <!-- 1. HERO SECTION -->
+        <section class="max-w-4xl mx-auto px-6 mb-24 reveal">
+            <h1 class="text-5xl md:text-7xl leading-tight mb-8">
+                Rudolph Christmas Lights
+            </h1>
+            <p class="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-300 font-light">
+                Rudolph Christmas Lights is a premium holiday lighting company serving the Greater Vancouver area. I built their brand identity and website from the ground up in 1.5 weeks.
+            </p>
+        </section>
+
+        <!-- 2. ROLES & RESULTS GRID -->
+        <section class="max-w-4xl mx-auto px-6 mb-32 reveal">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-gray-200 pt-8">
+                <div>
+                    <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-gray-400">My Role</h3>
+                    <ul class="space-y-2 text-lg">
+                        <li>Brand Identity & Logo Design</li>
+                        <li>UX/UI Design & Prototyping</li>
+                        <li>Web Development</li>
+                        <li>Content Strategy</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-gray-400">Results</h3>
+                    <ul class="space-y-2 text-lg">
+                        <li>Launched fully functional site in 1.5 weeks</li>
+                        <li>Established distinctive "Rudolph" brand identity</li>
+                        <li>scalable experience framework aligning with business goals</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+       <!-- 3. MASSIVE HERO VIDEO (Placeholder) -->
+        <section class="w-full mb-32 reveal">
+            <video 
+                class="w-full h-screen object-cover" 
+                autoplay 
+                loop 
+                muted 
+                playsinline
+                poster="https://placehold.co/1920x1080/D32F2F/FFFFFF?text=Video+Poster+Image"
+            >
+                <!-- Replace these src attributes with your actual video URLs -->
+                <source src="assets/Rudolph/Rudolph website walkthrough.mp4" type="video/mp4">
+                
+            </video>
+            <p class="text-center text-sm text-gray-400 mt-4 font-mono">Complete Website Walkhrough</p>
+        </section>
+
+        <!-- 4. THE CONTEXT (Narrow Text Column) -->
+        <section class="max-w-2xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">The Challenge: A Race Against Time</h2>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                The client needed a quick website up and running, and I only had a week and a half to finish it. There was no existing name, no logo, and no content—just a service: "Christmas lights for commercial and residential purposes."
+            </p>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                My challenge was to create a complete identity that reflected festive emotion and holiday charm while building immediate trust with new customers, all within an aggressive sprint.
+            </p>
+        </section>
+
+        <!-- 5. PROCESS IMAGE (Full Width) -->
+        <section class="w-full px-4 md:px-8 mb-32 reveal">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- LEFT COLUMN: VIDEO PLACEHOLDER (First Iteration) -->
+                <div class="aspect-[4/3] bg-gray-100 flex items-center justify-center overflow-hidden">
+                    <video 
+                        class="w-full h-full object-cover" 
+                        autoplay 
+                        loop 
+                        muted 
+                        playsinline
+                        poster="https://placehold.co/1200x900/111111/FFFFFF?text=First+Iteration+Video+Poster"
+                    >
+                        <!-- Replace these src attributes with your actual video URLs -->
+                        <source src="assets/Rudolph/Rudolph First Iteration.mp4" type="video/mp4">
+                       
+                    </video>
+                </div>
+                <div class="aspect-[4/3] bg-gray-100 flex items-center justify-center">
+                    <img 
+                        src="assets/Rudolph/Initial Moodboard.png" 
+                        alt="Moodboard" 
+                        class="cinema-image object-cover w-full h-full"
+                    >
+                </div>
+            </div>
+            <p class="text-center text-sm text-gray-400 mt-4 font-mono">Left: First Landing Page Iteration. Right: Initial Moodboard.</p>
+        </section>
+
+        <!-- 6. THE PIVOT (Narrow Text) -->
+        <section class="max-w-2xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">The Pivot to "Rudolph"</h2>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                I presented the first iteration to the client, but he wanted it themed more specifically towards <strong>Rudolph the Red-Nosed Reindeer</strong> and use of more festive elements. This feedback was the turning point.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                This led to my second iteration: a long-scrolling landing page structure, addressing his festive element with a bouquet of flowers in red and green which signifies Christmas colors. Other than that, I added dedicated pages for Residential and Commercial lighting to segment the user journey, and I began developing a custom logo that highlighted the famous reindeer.
+            </p>
+        </section>
+
+        <!-- 7. LOGO & BRANDING (Big Visual) -->
+        <section class="w-full max-w-6xl mx-auto px-6 mb-32 reveal">
+            <div class="bg-gray-50 p-12 md:p-24 flex items-center justify-center">
+                <img 
+                    src="assets/Rudolph/Logo Iteration Process.png" 
+                    alt="Logo Evolution" 
+                    class="w-full max-w-2xl shadow-xl"
+                >
+            </div>
+           <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Final Logo Design Iteration</p>
+        </section>
+
+        <!-- 8. UX STRATEGY (Narrow Text) -->
+        <section class="max-w-2xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">Interaction & Navigation</h2>
+           <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8">
+                To balance the festive aesthetic with usability, I implemented two key UX features:
+            </p>
+            
+            <div class="space-y-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-2">1. Sticky Navigation</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Given the long landing page structure, users needed complete freedom to switch contexts. I added a sticky nav bar ensuring "Residential", "Commercial", "About Us" and "Contact" were always one click away.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">2. Parallax Storytelling</h3>
+                   <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        The client wanted "subtle yet visible animation." I added a parallax effect where a small bouquet of flowers in red and green floats upward as the user scrolls, creating a sense of vertical journey and delight without overwhelming the content.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. INTERACTION SHOWCASE (Video Placeholders) -->
+        <section class="w-full px-4 md:px-8 mb-32 reveal">
+           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+                <!-- LEFT COLUMN: MOBILE MENU VIDEO -->
+                <div>
+                    <div class="aspect-[9/16] bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
+                        <video 
+                            class="w-full h-full object-cover" 
+                            autoplay 
+                            loop 
+                            muted 
+                            playsinline
+                            poster="https://placehold.co/600x1000/111111/FFFFFF?text=Mobile+Menu+Video+Poster"
+                        >
+                            <!-- Replace with actual video URLs for Mobile Menu -->
+                            <source src="assets/Rudolph/Rudolph hamburger menu.mp4" type="video/mp4">
+                            
+                        </video>
+                    </div>
+                    <p class="mt-4 font-bold">Mobile Navigation</p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Standard hamburger menu for ease of use on small screens.</p>
+                </div>
+                <!-- RIGHT COLUMN: PARALLAX ANIMATION VIDEO -->
+                <div>
+                    <div class="aspect-[9/16] bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
+                        <video 
+                            class="w-full h-full object-cover" 
+                            autoplay 
+                            loop 
+                            muted 
+                            playsinline
+                            poster="https://placehold.co/600x1000/D32F2F/FFFFFF?text=Parallax+Scroll+Video+Poster"
+                        >
+                            <!-- Replace with actual video URLs for Parallax Scroll -->
+                            <source src="assets/Rudolph/Rudolph Parallax Scrolling.mp4" type="video/mp4">
+                            
+                        </video>
+                    </div>
+                    <p class="mt-4 font-bold">Parallax Animation</p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">The floating light element creating depth during scroll.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. REFLECTION (Narrow Text) -->
+        <section class="max-w-2xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">Reflection & Growth</h2>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                This project was a lesson in rapid decision-making. If I had more time, I would have advocated for more concise body copy, as the current text density can be overwhelming for users scanning for quick info.
+            </p>
+           <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                I also realized that placing images above headings in certain sections disrupted the visual hierarchy. These are key takeaways I've carried forward: content structure is just as critical as visual flair.
+            </p>
+        </section>
+
+        <!-- FOOTER NAV -->
+        <section class="max-w-4xl mx-auto px-6 py-24 border-t border-gray-100 flex justify-between items-center text-sm font-medium tracking-widest uppercase reveal">
+            <a href="leze.html" class="text-gray-400 hover:text-black transition-colors">← Previous: Leze Instagram Kit</a>
+            <a href="viff.html" class="text-gray-400 hover:text-black transition-colors">Next: VIFF Digital Passport →</a>
+        </section>
+
+    </main>
+
+    <script>
+        // Simple Intersection Observer to trigger fade-up animations on scroll- rudolph.html
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Safwat Ifti</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'], // Added for that Maurer-style headline contrast
+                    },
+                    colors: {
+                        dark: '#111111',
+                        light: '#ffffff',
+                        accent: '#E81C5F', // Keeping a subtle accent available if needed
+                    }
+                }
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.classList.add(currentTheme);
+
+            const toggle = document.getElementById('theme-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    const newTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+                    localStorage.setItem('theme', newTheme);
+                });
+            }
+        });
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .grid-line {
+            border-top: 1px solid #e5e5e5;
+        }
+        .dark .grid-line {
+            border-top: 1px solid #262626;
+        }
+        /* Sticky section headers */
+        .sticky-header {
+            position: sticky;
+            top: 6rem;
+        }
+    </style>
+</head>
+<body class="bg-white text-dark dark:bg-dark dark:text-light antialiased transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 w-full z-50 bg-white/95 dark:bg-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-lg font-bold tracking-tight hover:opacity-75 transition-opacity">
+                SI — About
+            </a>
+                <button id="theme-toggle" class="w-6 h-6 flex items-center justify-center border border-current rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors" title="Toggle Theme">
+                    <div class="w-2 h-2 rounded-full bg-current"></div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-24">
+
+        <!-- 1. HERO STATEMENT -->
+        <section class="mb-32">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl leading-tight mb-8">
+                Creativity Through <br>
+                <span class="italic opacity-60">Context & Curiosity.</span>
+            </h1>
+        </section>
+
+        <!-- 2. INTRODUCTION / THE MOTION LAB -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-8 py-16 grid-line">
+            <div class="md:col-span-4 lg:col-span-3">
+                <h2 class="text-xs font-bold uppercase tracking-widest opacity-50 sticky-header">The Motion Lab</h2>
+            </div>
+            <div class="md:col-span-8 lg:col-span-9">
+                <p class="text-xl md:text-2xl font-light leading-relaxed mb-12 max-w-3xl">
+                    Outside of structured design, recently I have been spending my spare time experimenting with editing content. I create lyric and typographic edits for music.It is fun and i enjoy it a lot.
+                </p>
+                
+                <!-- UPDATED: Stacked layout (grid-cols-1) and Landscape aspect ratio (aspect-video) -->
+                <div class="w-full mb-8">
+                <div class="aspect-[16/9] bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden">
+                    <video 
+                        class="w-full h-full object-cover" 
+                        autoplay 
+                        
+                        muted 
+                        playsinline
+                        poster="https://placehold.co/1200x675/FBBF24/111111?text=BATMAN+EDIT"
+                        controls
+                    >
+                        <source src="assets/About Me/BATMAN.mp4" type="video/mp4">
+                        
+                    </video>
+                </div>
+                <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Batman Edit with Diferent typeweights</p>
+                        </div>
+                        
+                    <div class="w-full mb-8">
+                <div class="aspect-[16/9] bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden">
+                    <video 
+                        class="w-full h-full object-cover" 
+                        autoplay 
+                        
+                        muted 
+                        playsinline
+                        poster="https://placehold.co/1200x675/FBBF24/111111?text=RaindanceDave&Tems"
+                        controls
+                    >
+                        <source src="assets/About Me/raindance-dave&tems.mp4" type="video/mp4">
+                        
+                    </video>
+                </div>
+                <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Raindance Lyric Edit</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CONTENT CREATION (Posters & Reels) -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-8 py-16 grid-line">
+            <div class="md:col-span-4 lg:col-span-3">
+                <h2 class="text-xs font-bold uppercase tracking-widest opacity-50 sticky-header">Visual Experiments</h2>
+            </div>
+            <div class="md:col-span-8 lg:col-span-9">
+                <p class="text-lg leading-relaxed opacity-80 mb-12 max-w-3xl">
+                    I also like to redesign posters and assembling short-form content like Reels and TikToks. My focus is often on typography, and storytelling to create fleeting but impactful moments.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                     <!-- Motion Poster (4/5 Aspect Ratio) - Now using image placeholder -->
+                    <div class="space-y-2">
+                        <div class="aspect-[4/5] bg-gray-100 dark:bg-gray-900 rounded-lg overflow-hidden flex items-center justify-center">
+                            <img 
+                                src="assets/About Me/Poster Redesign.png" 
+                                alt="Motion poster concept mockup with typography." 
+                                class="w-full h-full object-cover"
+                                
+                            />
+                        </div>
+                        <p class="text-xs opacity-50">Poster Redesign.</p>
+                    </div>
+                    
+                    <!-- Short Form Clip (9/16 Aspect Ratio) - Now using image placeholder -->
+                    <div class="space-y-2">
+                        <div class="aspect-[9/16] bg-gray-100 dark:bg-gray-900 rounded-lg overflow-hidden flex items-center justify-center">
+                            <video 
+                        class="w-full h-full object-cover" 
+                        autoplay 
+                        
+                        muted 
+                        playsinline
+                        poster="https://placehold.co/1200x675/FBBF24/111111?text=RaindanceDave&Tems"
+                        controls
+                    >
+                        <source src="assets/About Me/motion.mp4" type="video/mp4">
+                        
+                    </video>
+                </div>
+                <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Motion Design</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. DOWNTIME (Hobbies) -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-8 py-16 grid-line">
+            <div class="md:col-span-4 lg:col-span-3">
+                <h2 class="text-xs font-bold uppercase tracking-widest opacity-50 sticky-header">Downtime</h2>
+            </div>
+            <div class="md:col-span-8 lg:col-span-9">
+                <p class="text-lg leading-relaxed opacity-80 mb-12 max-w-3xl">
+                    When I’m not designing or editing, you’ll usually find me reading to absorb new narratives, binge-watching TV shows or anime for visual inspiration, playing soccer, or going out for runs to clear my mind.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-2">
+                        <div class="aspect-video bg-gray-100 dark:bg-gray-900 rounded-lg overflow-hidden flex items-center justify-center">
+                            <img 
+                                src="assets/About Me/movie vibes.png" 
+                                alt="Books and anime collection representing visual inspiration." 
+                                class="w-full h-full object-cover"
+                            />
+                        </div>
+                        <p class="text-xs opacity-50">Spoiler Alert.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SOCIAL PLATFORM -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-8 py-16 grid-line">
+            <div class="md:col-span-4 lg:col-span-3">
+                <h2 class="text-xs font-bold uppercase tracking-widest opacity-50 sticky-header">Social Presence</h2>
+            </div>
+            <div class="md:col-span-8 lg:col-span-9">
+                <p class="text-xl md:text-2xl font-light leading-relaxed max-w-3xl">
+                    I am actively building a platform on TikTok by sharing my creative habits—edits, posters, and graphic experiments made in Photoshop and Illustrator—to document my growth and connect with the creative community. I also do post silly meme but relatable content
+                </p>
+            </div>
+        </section>
+
+        <!-- 6. PERSONALITY (Memes/Relatable) -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-8 py-16 grid-line">
+            <div class="md:col-span-4 lg:col-span-3">
+                <h2 class="text-xs font-bold uppercase tracking-widest opacity-50 sticky-header">Personality</h2>
+            </div>
+            <div class="md:col-span-8 lg:col-span-9">
+                <p class="text-lg leading-relaxed opacity-80 mb-12 max-w-3xl">
+                    Beyond the polish of design, I love making relatable fun meme-style content. It keeps the process grounded and fun.humour is my coping mechanism and a way to connect with others on a human level.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-2">
+                        <div class="aspect-[9/16] bg-gray-100 dark:bg-gray-900 rounded flex items-center justify-center">
+                            <video 
+                            class="w-full h-full object-cover" 
+                            autoplay 
+                            
+                            muted 
+                            playsinline
+                            poster="https://placehold.co/600x1000/4F46E5/FFFFFF?text=meme+video"
+                            controls
+                        >
+                            <!-- REPLACE THIS SOURCE WITH YOUR VIDEO URL/PATH -->
+                            <source src="assets/About Me/meme video_Safwat.mp4" type="video/mp4">
+                            
+                        </video>
+                        </div>
+                        <p class="text-xs opacity-50">Humour is my coping mechanism.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="aspect-[4/5] bg-gray-100 dark:bg-gray-900 rounded-lg overflow-hidden flex items-center justify-center">
+                            <img 
+                                src="assets/About Me/behind the scenes.png" 
+                                alt="Behind the scenes lifestyle image." 
+                                class="w-full h-full object-cover"
+                                
+                            />
+                        </div>
+                        <p class="text-xs opacity-50">Behind the scenes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. TOOLKIT & CAPABILITIES (The Grid Lists) -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-8 py-16 grid-line mb-24">
+            <div class="md:col-span-4 lg:col-span-3">
+                <h2 class="text-xs font-bold uppercase tracking-widest opacity-50 sticky-header">Capabilities</h2>
+            </div>
+            <div class="md:col-span-8 lg:col-span-9">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
+                    
+                    <!-- Tools Column -->
+                    <div>
+                        <h3 class="text-lg font-bold mb-6 serif italic">The Toolkit</h3>
+                        <ul class="space-y-3 opacity-80">
+                            <li>Adobe Photoshop</li>
+                            <li>Adobe Illustrator</li>
+                            <li>Adobe InDesign</li>
+                            <li>Figma</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skills Column -->
+                    <div>
+                        <h3 class="text-lg font-bold mb-6 serif italic">What I Bring</h3>
+                        <ul class="space-y-3 opacity-80">
+                            <li>UX Research</li>
+                            <li>UI Design</li>
+                            <li>Prototyping</li>
+                            <li>Content Strategy</li>
+                            <li>Visual Design</li>
+                            <li>Product Design</li>
+                            <li>Mobile Design</li>
+                            <li>Wireframing</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="py-12 border-t border-gray-200 dark:border-gray-800 text-sm opacity-60 flex justify-between">
+            <span>© 2025 Safwat Ifti</span>
+            <span>Available Worldwide.</span>
+        </footer>
+
+    </main>
+
+</body>
+</html>

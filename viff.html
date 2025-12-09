@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIFF Digital Passport — Case Study</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Config for Dark Mode and Tailwind Customizations -->
+    <script>
+        // Custom color for the VIFF case study (Gold/Amber)
+        const viffAccent = '#FBBF24'; // Tailwind Amber-400 
+
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#111111', 
+                        light: '#ffffff',
+                        viff_accent: viffAccent,
+                    }
+                }
+            }
+        }
+        
+        // Simple dark mode toggle logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.classList.add(currentTheme);
+
+            const toggle = document.getElementById('theme-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    const newTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+                    localStorage.setItem('theme', newTheme);
+                });
+            }
+        });
+    </script>
+    </head>
+
+<body class="bg-white text-dark dark:bg-dark dark:text-light antialiased transition-colors duration-300 font-sans">
+<!-- HEADER / NAVIGATION -->
+
+    <header class="sticky top-0 w-full z-50 bg-white/95 dark:bg-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-lg font-bold tracking-tight hover:opacity-75 transition-opacity">
+                ← Homepage
+            </a>
+            <button id="theme-toggle" class="w-8 h-8 flex items-center justify-center border border-current rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors" title="Toggle Theme">
+                <div class="w-3 h-3 rounded-full bg-current"></div>
+            </button>
+
+        </div>
+
+    </header>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Smooth reveal animation classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom class for wider image content */
+        .wide-content {
+            max-width: 80rem; /* max-w-6xl equivalent */
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    
+
+    <main class="pt-32 pb-32">
+
+        <!-- 1. HERO SECTION (TEXT CONTENT - kept narrow) -->
+        <section class="max-w-4xl mx-auto px-6 mb-24 reveal">
+            <h1 class="text-5xl md:text-7xl leading-tight mb-8">
+                Enhancing in-person VIFF experience through an interactive microsite
+            </h1>
+            <p class="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-300 font-light">
+                This project was completed for the Information Design course at Simon Fraser University. Our team was tasked to propose a digital intervention for a local non-profit organization.
+            </p>
+            <p class="text-lg mt-6 leading-relaxed text-gray-700 dark:text-gray-300 font-light">
+                Our final product includes a Digital Passport microsite with various interactive features (VIFF Passport and VIFF Wrapped) designed in Figma to help Vancouver International Film Festival (VIFF) enhance in-person experience for the younger community and bring Gen Z attendees together in the digital era.
+            </p>
+            <a href="https://www.figma.com/proto/rI3NylExuVCO3VvCQJHM7Y/IAT235-P04-PHASE-2?node-id=728-7618&scaling=scale-down-width&starting-point-node-id=728%3A7618&t=V6Ojs9uaemEHpExA-1" class="inline-block mt-8 px-6 py-3 text-lg font-semibold bg-viff_accent text-dark rounded-lg shadow-xl hover:bg-amber-500 transition-colors">
+                View Prototype
+            </a>
+        </section>
+
+        <!-- 2. ROLES & RESULTS GRID (TEXT CONTENT - kept narrow) -->
+        <section class="max-w-4xl mx-auto px-6 mb-32 reveal">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 border-t border-gray-200 pt-8">
+                <div>
+                    <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-gray-400 dark:text-gray-500">Project Type</h3>
+                    <p class="text-lg">Interaction Design (Academic Project)</p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-gray-400 dark:text-gray-500">Year</h3>
+                    <p class="text-lg">June 2023 - Jul 2023</p>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-gray-400 dark:text-gray-500">Team</h3>
+                    <p class="text-lg">Jae Eun Kim, Md Safwat Qurib Ifti, Valeriya Ten, Annie Vo, Kate Luong</p>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-gray-400 dark:text-gray-500">My Role</h3>
+                    <ul class="space-y-2 text-lg">
+                        <li>Product Design</li>
+                        <li>Content Strategy</li>
+                        <li>Visual Design</li>
+                        <li>UI Design</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+       <!-- 3. MASSIVE HERO VIDEO (VIDEO CONTENT - now full width) -->
+        <section class="w-full mb-32 reveal">
+             <!-- To add your video, replace the 'src' value with the URL or path to your video file. -->
+            <div class="wide-content px-6">
+                <div class="w-full aspect-video object-cover bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden rounded-lg">
+                    <video 
+                        class="w-full h-full object-cover" 
+                        autoplay 
+                        muted 
+                        playsinline
+                        poster="https://placehold.co/1920x1080/FBBF24/111111?text=VIFF+COMPLETE+WALKTHROUGH+00:35"
+                        controls 
+                    >
+                         <!-- REPLACE THIS SOURCE WITH YOUR VIDEO URL/PATH -->
+                        <source src="assets/viff/VIFF walkthrough website.mp4" type="video/mp4">
+                        
+                    </video>
+                </div>
+                <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Complete website walkthrough (00:35)</p>
+            </div>
+        </section>
+
+        <!-- 4. THE CONTEXT / CHALLENGE 1 (TEXT CONTENT - kept narrow) -->
+        <section class="max-w-2xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">VIFF at risk of becoming outdated due to lack of digital infrastructure</h2>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                After conducting thorough research, I proposed Vancouver International Film Festival (VIFF) to be our client for this project. Based on my findings, the Internet has vastly changed the film exhibition industry over the past two decades, and fundamentally shifted the role of festivals. According to VIFF’s Strategic Plan, they are currently at risk of becoming outdated and uncompetitive due to lack of digital infrastructure.
+            </p>
+            
+            <h3 class="text-3xl md:text-4xl mt-12 mb-6">Declining youth attendance across festivals</h3>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                Based on secondary research, there has been a decline in interest in attending in-person events like Vancouver International Film Festival, especially for younger generations. According to a report on the Sundance Film Festival, 27% of the audience was aged 26-35, 18.3% were between 18 and 25, and only 0.3% were under 18. This trend highlights a significant challenge in maintaining relevance and engagement with youth.
+            </p>
+            <div class="w-full aspect-[2/1] bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden mt-8">
+                <!-- IMAGE PLACEHOLDER: Attendee Age Chart -->
+                <img src="assets/viff/Sundance attendance.png" alt="Chart showing attendee age distribution from a 2020 Sundance Film Festival Report" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Attendee Age. 2020 Report on the Sundance Film Festival</p>
+        </section>
+
+        <!-- 5. TARGET AUDIENCE / PROBLEM STATEMENT (TEXT CONTENT - kept narrow) -->
+        <section class="max-w-2xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">Target audience - Gen Z</h2>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8">
+                To address this issue, our team decided to create a microsite that will target Gen Z, who are at the forefront of cultural trends and adept at navigating technology. By focusing on this demographic and in-person engagement, VIFF can potentially expand its audience base.
+            </p>
+            
+            <div class="p-8 border-l-4 border-viff_accent bg-gray-50 dark:bg-gray-800 rounded-lg">
+                <h3 class="text-xl font-bold mb-3 text-viff_accent uppercase tracking-widest">Problem Statement</h3>
+                <p class="text-xl leading-relaxed font-medium">
+                    How can we enhance in-person festival experience for the younger community and bring them together in this digital era where organic connections are often lost?
+                </p>
+            </div>
+        </section>
+
+        <!-- 6. GENERATING MICROSITE IDEAS (IMAGE CONTENT - now wider) -->
+        <section class="wide-content px-6 mb-32 reveal">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-3xl md:text-4xl mb-6">Generating microsite ideas</h2>
+            
+                <h3 class="text-xl font-bold mb-4 text-viff_accent">Initial Concept: Community Focus</h3>
+                <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8">
+                    Initially, we chose to focus on the community aspect of the festival and create a microsite dedicated to the upcoming VIFF 2023 featuring movie and event line-up. However, this concept seemed too static and lacked interactivity, failing to resonate with the Gen Z.
+                </p>
+            </div>
+
+            
+            <div class="space-y-10 mb-8"> 
+                <!-- IMAGE 1: Team Stickies Brainstorming -->
+                <div class="w-full">
+                    <div class="aspect-[2/1] bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden">
+                        <!-- IMAGE PLACEHOLDER: Team Stickies Brainstorming -->
+                        <img src="assets/viff/team stickies.png" alt="Image of team brainstorming sticky notes" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Figjam Brainstorm Session</p>
+                </div>
+            </div>
+
+            <div class="max-w-2xl mx-auto">
+                <h3 class="text-xl font-bold mt-8 mb-4 text-viff_accent">Critique & Feedback</h3>
+                <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+                    During our second round of brainstorming, we proposed to incorporate interactive features like polls and surveys, where attendees can actively participate online during or after the event.
+                </p>
+                <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                    However, based on in-class critique, the site did not have an effective and unique content strategy to spark an interest from the young generation, prompting us to pivot to a more engaging concept.
+                </p>
+            </div>
+        </section>
+        
+        <!-- 7. DIGITAL PASSPORT PROGRAM (TEXT CONTENT - kept narrow, except for Spotify Wrapped image) -->
+        <section class="max-w-2xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">Digital Passport Program</h2>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8">
+                Finally, our team came up with a Digital Passport idea. Taking inspiration from the National Museum of Singapore where visitors collect stamps as proof of in-person presence, we thought that Vancouver International Film Festival could benefit from a similar strategy. We wanted to modernize the process by introducing a digital passport and stamps collected through scanning custom QR codes during any in-person event.
+            </p>
+
+            <h3 class="text-xl font-bold mb-4 text-viff_accent">Content Strategy</h3>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+                As a starting point, I proposed to create a landing page which users could visit before accessing the main Digital Passport page. This strategy aims to provide users with a comprehensive overview of the program and prevent confusion for first-time users. Additionally, I created a custom sitemap to establish a clear hierarchy for the microsite’s structure.
+            </p>
+             <!-- IMAGE 1: Content Strategy -->
+                <div class="w-full">
+                    <div class="aspect-[2/1] bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden">
+                        <!-- IMAGE PLACEHOLDER: Content Strategy -->
+                        <img src="assets/viff/content strategy.png" alt="Image of team brainstorming sticky notes" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    
+
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+                After the landing page, users can navigate to the Digital Passport page (My Passport 23’) to view featured VIFF events. Once they log in or register for the program, they can start collecting digital stamps by attending the in-person events listed on the site.
+            </p>
+
+            <h3 class="text-xl font-bold mb-4 text-viff_accent">Introducing VIFF Wrapped</h3>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                Aside from the Digital Passport, we decided to add a new functionality called VIFF Wrapped in order to enhance overall experience. Inspired by Spotify, VIFF Wrapped is a data analysis tool that compiles insightful statistics based on the films and events attended by users throughout the festival, providing a fun, shareable summary of their festival journey.
+            </p>
+            <!-- Spotify Wrapped image uses the wider container outside the max-w-2xl block for better visibility -->
+        </section>
+        
+        <section class="w-full px-6 mb-32 reveal">
+            <div class="wide-content">
+                <div class="w-full aspect-[2/1] bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden mt-8">
+                    <!-- IMAGE PLACEHOLDER: Spotify Wrapped Inspiration -->
+                    <img src="assets/viff/Spotify Wrapped Inspo.jpg" alt="Visual inspiration board showing Spotify Wrapped design elements" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Spotify Wrapped Inspiration</p>
+            </div>
+        </section>
+
+
+        <!-- 8. INITIAL DESIGN PROCESS (TEXT CONTENT - kept narrow, except for Moodboard image) -->
+        <section class="max-w-2xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">Initial Design Process</h2>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                During the design process, I collaborated with Valeriya Ten to create the first mockup iterations. Together, we selected the color scheme and typeface based on our secondary research and the overall feel we wanted to achieve. Additionally, I created custom moodboards to assist us in making further design decisions.
+            </p>
+
+            <h3 class="text-xl font-bold mb-4 text-viff_accent">The main visual theme of our microsite is nostalgia</h3>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8">
+                In line with the current trends, Gen Z is notably attracted to the visual aesthetics of earlier decades, embracing vibrant colours, fashion styles, and old school design elements that characterize those time periods. This informed our initial moodboard selection.
+            </p>
+            <!-- Moodboard image uses the wider container outside the max-w-2xl block for better visibility -->
+        </section>
+
+        <section class="w-full px-6 mb-32 reveal">
+            <div class="wide-content">
+                <div class="w-full aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden">
+                    <!-- IMAGE PLACEHOLDER: Moodboard 1st iteration -->
+                    <img src="assets/viff/Moodboard(1st Iteration).png" alt="First design moodboard showing initial visual direction" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Moodboard (1st iteration)</p>
+            </div>
+        </section>
+        
+        <!-- 9. INITIAL MOCKUPS & FEEDBACK (IMAGE CONTENT - now wider) -->
+        <section class="wide-content px-6 mb-32 reveal">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-3xl md:text-4xl mb-6">Initial Mockups</h2>
+            </div>
+
+            <!-- Video 1: Landing Page Walkthrough (1st Iteration) -->
+            <div class="w-full mb-8">
+                <div class="aspect-[16/9] bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden">
+                    <video 
+                        class="w-full h-full object-cover" 
+                        autoplay 
+                       
+                        muted 
+                        playsinline
+                        poster="https://placehold.co/1200x675/FBBF24/111111?text=LANDING+PAGE+WALKTHROUGH+1ST+ITERATION"
+                        controls
+                    >
+                        <source src="assets/viff/VIFF landing 1.mp4" type="video/mp4">
+                        
+                    </video>
+                </div>
+                <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Landing Page Walkthrough (1st Iteration)</p>
+            </div>
+            
+            <!-- Image 2: My Passport 23’ (1st iteration) -->
+            <div class="w-full aspect-[2/1] bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden mb-8">
+                <!-- IMAGE PLACEHOLDER: My Passport 23’ (1st iteration) -->
+                <img src="assets/viff/My Passport (1st Iteration).png" alt="Mockup of My Passport 23' page first iteration" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">My Passport 23’ (1st iteration)</p>
+            
+            <div class="max-w-2xl mx-auto">
+                <h3 class="text-xl font-bold mt-8 mb-4 text-viff_accent">Design mismatch and lack of playfulness to resonate with Gen Z</h3>
+                <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                    Our teaching team highlighted the microsite's lack of playfulness and nostalgic elements, particularly for engaging younger generations. In addition, there seemed to be a design mismatch between the landing page and the program page. The landing page failed to effectively convey information about the program and its incentives, necessitating a significant visual overhaul.
+                </p>
+            </div>
+        </section>
+
+        <!-- 10. FINAL DESIGN (IMAGE CONTENT - now wider) -->
+        <section class="wide-content px-6 mb-32 reveal">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-3xl md:text-4xl mb-6">Final Design</h2>
+            
+                <h3 class="text-xl font-bold mb-4 text-viff_accent">How did we improve our design after feedback?</h3>
+                <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8">
+                    After discussing the feedback, I redesigned the moodboard to align with the playful and childlike aesthetic we want to explore for our microsite, integrating more saturated colors and retro graphic elements.
+                </p>
+            </div>
+
+            <!-- Moodboard 2nd iteration -->
+            <div class="w-full aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden max-w-5xl mx-auto mb-8">
+                <!-- IMAGE PLACEHOLDER: Moodboard 2nd iteration -->
+                <img src="assets/viff/moodboard(2nd) iteration.png" alt="Second design moodboard showing playful and retro aesthetic" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Moodboard (2nd iteration)</p>
+            
+            <!-- Final Landing Page -->
+            
+                <div class="max-w-2xl mx-auto">
+                    <h2 class="text-2xl font-bold mb-4 text-viff_accent">Final Landing Page</h2>
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                        We collaborated on the final landing page mockup, revising the initial version to match the playful retro style of the program page. This was achieved by incorporating a vibrant yellow as the main background colour and adding visuals, including festival tickets, the passport itself and relevant imagery.
+                        <!-- landing page 2nd iteration -->
+           <div class="w-full aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden max-w-5xl mx-auto mb-0">
+               <!-- IMAGE PLACEHOLDER: Landing page 2nd iteration -->
+                <img src="assets/viff/Landing Page(2nd iteration).png" alt="Second iteration of the landing page showing playful and retro aesthetic" class="w-full h-full object-cover rounded-lg">
+                 </div>
+                 <!-- Spacing Fix: mt-4 -> mt-2. Added mb-8 for separation from next text block -->
+                <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-2 font-mono mb-8">Landing Page (2nd iteration)</p>
+
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300  mb-6">
+                        I proposed the idea of incorporating a storytelling element into the landing page. Now, we present information in a structured manner, with sections explaining the participation process, merchandise prizes, and the program's backstory.
+                    </p>
+                </div>
+
+                <div class="aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden">
+                    <video 
+                        class="w-full h-full object-cover" 
+                        autoplay 
+                        muted 
+                        playsinline
+                        poster="https://placehold.co/1200x675/FBBF24/111111?text=LANDING+PAGE+WALKTHROUGH+2ND+ITERATION"
+                        controls
+                    >
+                        <source src="assets/viff/VIFF landing 2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Landing Page (2nd iteration) Walkthrough</p>
+            </div>
+            
+            <!-- Digital Passport Program page (My Passport 23’) -->
+            <div class="mt-16 mb-8">
+                <div class="max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold mb-4 text-viff_accent">Digital Passport Program page (My Passport 23’)</h3>
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                        The Digital Passport Program page allows horizontal scrolling to view the timeline. Each circle represents a corresponding event at Vancouver International Film Festival 2023. On click, circles display a pop-up window (designed in an old browser style) with detailed information and a stamp (if collected) or a stamp placeholder (if not collected).
+                    </p>
+                </div>
+                
+                <div class="aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden">
+                    <video 
+                        class="w-full h-full object-cover" 
+                        autoplay 
+                        muted 
+                        playsinline
+                        poster="https://placehold.co/1200x675/FBBF24/111111?text=MY+PASSPORT+23'+PAGE+WALKTHROUGH"
+                        controls
+                    >
+                        <source src="assets/viff/Passport Walkthrough.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">My Passport 23’ Page Walkthrough</p>
+            </div>
+            
+            <!-- VIFF Passport & VIFF Wrapped -->
+            <div class="mt-16">
+                <div class="max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold mb-4 text-viff_accent">VIFF Passport & VIFF Wrapped</h3>
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                        At the end of the timeline, users can navigate to the VIFF Digital Passport to view all stamps and VIFF Wrapped to see a custom data analysis based on attended events. Both pages are encouraged to be shared on social media in order to help generate more buzz online.
+                    </p>
+                </div>
+                <div class="aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden">
+                    <video 
+                        class="w-full h-full object-cover" 
+                        autoplay 
+                        muted 
+                        playsinline
+                        poster="https://placehold.co/1200x675/FBBF24/111111?text=VIFF+PASSPORT+AND+WRAPPED+WALKTHROUGH"
+                        controls
+                    >
+                        <source src="assets/viff/VIFF Wrapped Walkthrough.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">VIFF Passport & VIFF Wrapped Walkthrough</p>
+            </div>
+        </section>
+
+        <!-- 11. LEARNING TAKEAWAYS (TEXT CONTENT - kept narrow) -->
+        <section class="max-w-2xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">Learning Takeaways</h2>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                I thought that this academic project served as a great introduction to interaction and web design. It has greatly contributed to my growth as a designer, enhancing my skills in wireframing and prototyping as well as emphasizing the significance of human-centered approach (i.e. the needs of Gen Z demographic in this case). I took this class during the summer and had a great team, which most likely played a significant role in the project's success. Huge thanks to our teaching team (Paul, Zaac, and Nafira) who provided us with lots of feedback sessions both in class and during office hours! :)
+            </p>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                While overall the project was successful, I still thought there was room for improvement. Reflecting on the experience, I realize the potential benefits of initiating more frequent team brainstorming sessions and experimenting further with the visual design, particularly focusing on optimizing for mobile view.
+            </p>
+        </section>
+
+        <!-- FOOTER NAV -->
+        <section class="max-w-4xl mx-auto px-6 py-24 border-t border-gray-200 dark:border-gray-800 flex justify-between items-center text-sm font-medium tracking-widest uppercase reveal">
+            <a href="rudolph.html" class="text-gray-500 dark:text-gray-400 hover:text-dark dark:hover:text-light transition-colors">← Previous: Rudolph Christmas Lights</a>
+            <a href="tapestry.html" class="text-gray-500 dark:text-gray-400 hover:text-dark dark:hover:text-light transition-colors">Next: Tapestry Book App →</a>
+        </section>
+
+    </main>
+
+    <script>
+        // Simple Intersection Observer to trigger fade-up animations on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

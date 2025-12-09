@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tapestry Book App — Case Study</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Config for Dark Mode and Tailwind Customizations -->
+    <script>
+        // Custom color for the Tapestry case study (brownish accent)
+        const tapestryAccent = '#43211a'; 
+
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#111111', 
+                        light: '#ffffff',
+                        tapestry_accent: tapestryAccent,
+                    }
+                }
+            }
+        }
+        
+        // Simple dark mode toggle logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.classList.add(currentTheme);
+
+            const toggle = document.getElementById('theme-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    const newTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+                    localStorage.setItem('theme', newTheme);
+                });
+            }
+        });
+    </script>
+    </head>
+
+<body class="bg-white text-dark dark:bg-dark dark:text-light antialiased transition-colors duration-300 font-sans">
+<!-- HEADER / NAVIGATION -->
+
+    <header class="sticky top-0 w-full z-50 bg-white/95 dark:bg-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-lg font-bold tracking-tight hover:opacity-75 transition-opacity">
+                ← Homepage
+            </a>
+            <button id="theme-toggle" class="w-8 h-8 flex items-center justify-center border border-current rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors" title="Toggle Theme">
+                <div class="w-3 h-3 rounded-full bg-current"></div>
+            </button>
+
+        </div>
+
+    </header>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Smooth reveal animation classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom class for the massive images */
+        .cinema-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            background-color: #f3f4f6; /* Placeholder gray */
+        }
+    </style>
+    
+
+    <main class="pt-32 pb-32">
+
+        <!-- 1. HERO SECTION -->
+        <section class="max-w-4xl mx-auto px-6 mb-24 reveal">
+            <h1 class="text-5xl md:text-7xl leading-tight mb-8">
+                Tapestry Book App
+            </h1>
+            <p class="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-300 font-light">
+                Tapestry is a mobile application designed to combat social isolation and loneliness by creating a memory aid and social platform for seniors aged 65 and above.
+            </p>
+            <a href="https://cloud.protopie.io/p/44d34ff26cc9fc6197c2d8a7?ui=true&scaleToFit=true&enableHotspotHints=true&cursorType=touch&mockup=true&bgColor=%23F5F5F5&playSpeed=1" class="inline-block mt-8 px-6 py-3 text-lg font-semibold bg-tapestry_accent text-white rounded-lg shadow-xl hover:bg-indigo-900 transition-colors">
+                View Prototype
+            </a>
+        </section>
+
+        <!-- 2. ROLES & RESULTS GRID -->
+        <section class="max-w-4xl mx-auto px-6 mb-32 reveal">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-gray-200 pt-8">
+                <div>
+                    <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-gray-400 dark:text-gray-500">My Role</h3>
+                    <ul class="space-y-2 text-lg">
+                        <li>UX Research</li>
+                        <li>Logo Design</li>
+                        <li>Visual Design</li>
+                        <li>Wireframing</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-gray-400 dark:text-gray-500">Project Overview</h3>
+                    <ul class="space-y-2 text-lg">
+                        <li>Timeline: June - July 2023 (8 Weeks)</li>
+                        <li>Team: Jae Eun Kim, Md Safwat Qurib Ifti,  Valeriya Ten</li>
+                        <li>Tools: Figma, Protopie, Adobe Illustrator</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+       <!-- 3. MASSIVE HERO VIDEO (Placeholder) -->
+        <section class="w-full mb-32 reveal">
+             <!-- To add your video, replace the 'src' value with the URL or path to your video file. -->
+            <div class="w-full aspect-video object-cover bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden">
+                <video 
+                    class="w-full h-full object-cover" 
+                    autoplay 
+                    loop 
+                    muted 
+                    playsinline
+                    poster="https://placehold.co/1920x1080/4F46E5/FFFFFF?text=TAPESTRY+APP+SHOWCASE"
+                    controls 
+                >
+                     <!-- REPLACE THIS SOURCE WITH YOUR VIDEO URL/PATH -->
+                    <source src="assets/tapestry/Tapestry Mobile App Walkthrough.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Complete Mobile App Walkthrough</p>
+        </section>
+
+        <!-- 4. THE CONTEXT (Narrow Text Column) -->
+        <section class="max-w-2xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">The Challenge: Redefining the Gallery App for Seniors</h2>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                This project was completed for the Interface Design course at Simon Fraser University. Our design domain revolved around social isolation and loneliness among people within the same community or neighbourhood, specifically seniors over the age of 65.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                The core mission of the app is to preserve precious community memories through visuals and supporting sounds. Our goal was to provide seniors with an immersive journey back in time, allowing them to relive their most cherished moments with all their senses.
+            </p>
+        </section>
+
+        <!-- 5. CONTENT STRATEGY & SITEMAP -->
+        <section class="max-w-2xl mx-auto px-6 mb-12 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">Content Strategy</h2>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8">
+                As a starting point, I suggested building a sitemap to visualize our app structure. This approach helped us narrow down the features applicable within our timeline and established a foundational structure for the application's look and feel.
+            </p>
+            
+            <!-- SITEMAP DESCRIPTION (Paraphrased and Concise) -->
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4 font-bold">Sitemap Summary:</p>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+                Upon account creation, users can access <strong>My Gallery</strong> via the hamburger menu to share private pictures. The <strong>Community Gallery</strong> allows connection with neighbors through image viewing, liking, and commenting, and users can share their own images publicly.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                Additionally, users can select songs from a playlist to align with specific photos, helping commemorate particular moments. Tapestry functions as a secure digital <strong>phone book</strong>, enabling peer connection while respecting personal privacy needs.
+            </p>
+        </section>
+        
+        <section class="w-full px-4 md:px-8 mb-32 reveal">
+            <div class="aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden max-w-5xl mx-auto">
+                <!-- IMAGE PLACEHOLDER: Sitemap Visualization -->
+                <img src="assets/tapestry/Sitemap.png" alt="Sitemap Visualization showing the app structure" class="w-full h-full object-cover rounded-lg">
+                </div>
+            </div>
+            <!-- Sitemap is now a caption -->
+            <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Sitemap Visualization: The foundation for user flow and content organization.</p> 
+        </section>
+
+        <!-- 6. FIRST ITERATION -->
+        <section class="max-w-2xl mx-auto px-6 mb-12 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">First Iteration</h2>
+            <h3 class="text-xl font-bold mb-4 text-tapestry_accent">Mockup</h3>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                During the initial design process, I collaborated with my teammate, Valeriya Ten, to create the first mockup iterations for <strong>My Gallery</strong> and <strong>Community Gallery</strong>.
+            </p>
+        </section>
+
+        <section class="w-full px-4 md:px-8 mb-32 reveal">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <div>
+                    <div class="aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden max-w-5xl mx-auto">
+                       <!-- IMAGE PLACEHOLDER: My Gallery Mockup -->
+                        <img src="assets/tapestry/My Gallery.png" alt="First iteration mockup for My Gallery screen" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">My Gallery</p>
+                </div>
+                <div>
+                    <div class="aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden max-w-5xl mx-auto">
+                        <!-- IMAGE PLACEHOLDER: Community Gallery Mockup -->
+                        <img src="assets/tapestry/Community Gallery.png" alt="First iteration mockup for Community Gallery screen" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">My Community Gallery</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. POST-CRITIQUE FEEDBACK -->
+        <section class="max-w-2xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">Post-Critique Feedback</h2>
+            <h3 class="text-xl font-bold mb-4 text-tapestry_accent">Challenge</h3>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                Our teaching team observed that the initial mockups didn't include sufficient interactive elements, which could result in users not engaging actively with the app, potentially affecting user retention. Additionally, they noted that the app might be unclear to new users, as it doesn't provide clear guidance or onboarding instructions on navigating the app or what steps to take after creating an account.
+            </p>
+        </section>
+
+        <!-- 8. DESIGN INTERACTIONS (Updated) -->
+        <section class="max-w-2xl mx-auto px-6 mb-12 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">Design Interactions</h2>
+            <h3 class="text-xl font-bold mb-4 text-tapestry_accent">Updated Design Interactions</h3>
+            <!-- Rewritten and paraphrased text with better spacing -->
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+                Following the critique, we implemented several key interface improvements to boost engagement and clarify the user journey.
+            </p>
+            
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+                <strong>Core Interaction Refinements:</strong> I introduced a <strong>Tutorial Mode</strong> for new user onboarding, ensuring clear guidance on basic app functionalities. Photo interactions were significantly enhanced to include options for caption editing, categorization ("Period," "Season"), and thematic <strong>audio suggestions</strong>, which strengthen the memory-aid experience. Posts now feature user names and profile pictures, and <strong>Like buttons</strong> were added to drive community engagement.
+            </p>
+            
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+                <strong>Navigation & Layout:</strong> We made the <strong>Community Gallery</strong> the main landing page (replacing the previous toggle) to encourage active participation (Jae's focus). The <strong>My Gallery</strong> section is now conveniently accessible via the main menu (Valeriya's focus), providing a private space for profile and photo management.
+            </p>
+
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                <strong>Visual Design:</strong> Based on our research, I selected the final color scheme and typeface. The <strong>Lato</strong> typeface was chosen for its unique, quirky charm and readability, aligning with the app's overall friendly and accessible feel.
+            </p>
+        </section>
+
+        <section class="w-full px-4 md:px-8 mb-32 reveal">
+            <div class="aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center rounded-lg overflow-hidden max-w-5xl mx-auto">
+                <!-- IMAGE PLACEHOLDER: Design Interactions Updated -->
+                <img src="assets/tapestry/Design Interactions.png" alt="Updated app design showing interactive elements and tutorial mode" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Design Interactions Updated</p>
+        </section>
+
+        <!-- 9. FINAL DESIGN MOCKUPS (Updated to Full Width Stacked) -->
+        <section class="w-full max-w-6xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-12 text-center">Final Design Mockups</h2>
+            <!-- Updated to grid-cols-1 for full stacking -->
+            <div class="bg-gray-100 dark:bg-gray-900 p-8 md:p-12 grid grid-cols-1 gap-6 rounded-lg">
+                <!-- Aspect ratio changed to 2:1 for a wider, stacked look -->
+                <div class="aspect-[2/1] bg-gray-200 dark:bg-gray-800 flex items-center justify-center rounded-lg overflow-hidden">
+                    <!-- IMAGE PLACEHOLDER: Final Gallery -->
+                    <img src="assets/tapestry/Final Gallery.png" alt="Final design of the My Gallery screen" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div class="aspect-[2/1] bg-gray-200 dark:bg-gray-800 flex items-center justify-center rounded-lg overflow-hidden">
+                    <!-- IMAGE PLACEHOLDER: Final Logo Design -->
+                    <img src="assets/tapestry/Logo-design.png" alt="Final app logo design" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div class="aspect-[2/1] bg-gray-200 dark:bg-gray-800 flex items-center justify-center rounded-lg overflow-hidden">
+                    <!-- IMAGE PLACEHOLDER: Final Photo Customization -->
+                    <img src="assets/tapestry/Photo Customization Final.png" alt="Final screen for photo editing and customization" class="w-full h-full object-cover rounded-lg">
+                </div>
+            </div>
+            <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Final Design Mockups: Gallery, Logo, and Photo Customization.</p>
+        </section>
+
+        <!-- 10. INTERACTION SHOWCASE (Video Placeholders) -->
+        <section class="w-full px-4 md:px-8 mb-32 reveal">
+            <!-- Grid changed to 1 column, max-width reduced for mobile-style video display, and gap increased -->
+           <div class="grid grid-cols-1 gap-12 max-w-xl mx-auto"> 
+                <!-- TUTORIAL MODE -->
+                <div>
+                     <!-- To add your video, replace the 'src' value with the URL or path to your video file. -->
+                    <div class="aspect-[9/16] bg-gray-100 dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                        <video 
+                            class="w-full h-full object-cover" 
+                            autoplay 
+                            loop 
+                            muted 
+                            playsinline
+                            poster="https://placehold.co/600x1000/4F46E5/FFFFFF?text=TUTORIAL+MODE"
+                            controls
+                        >
+                             <!-- REPLACE THIS SOURCE WITH YOUR VIDEO URL/PATH -->
+                            <source src="assets/tapestry/Tutorial Mode.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <p class="mt-4 font-bold">Tutorial Mode Onboarding</p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Clear guidance designed for accessibility and confidence for first-time users.</p>
+                </div>
+
+                <!-- Community Gallery Interaction -->
+                <div>
+                    <!-- To add your video, replace the 'src' value with the URL or path to your video file. -->
+                    <div class="aspect-[9/16] bg-gray-100 dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                        <video 
+                            class="w-full h-full object-cover" 
+                            autoplay 
+                           
+                            muted 
+                            playsinline
+                            poster="https://placehold.co/600x1000/4F46E5/FFFFFF?text=APP+INTERACTION+FLOW"
+                            controls
+                        >
+                            <!-- REPLACE THIS SOURCE WITH YOUR VIDEO URL/PATH -->
+                            <source src="assets/tapestry/Tapestry Community Gallery.mp4" type="video/mp4">
+                            
+                        </video>
+                    </div>
+                    <p class="mt-4 font-bold">Community Gallery Interaction</p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Showcasing the browse, sort, and like functionality for peer connection.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. REFLECTION (Narrow Text) -->
+        <section class="max-w-2xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">Reflection: Lessons Learned & Growth</h2>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                This project provided me with valuable insights into the perspectives of seniors, particularly those aged 60 and above. It challenged my assumptions about design aesthetics, especially regarding the use of skeuomorphic elements, which our senior participants found intuitive and user-friendly.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                However, we encountered challenges regarding cognitive load. Despite our efforts to simplify navigation with linear scene transitions, some participants found the app's steps unnecessarily complex. This experience underscored the necessity of balancing functional complexity with simplicity in the user journey, emphasizing the need for streamlined functionality.
+            </p>
+        </section>
+
+        <!-- FOOTER NAV -->
+        <section class="max-w-4xl mx-auto px-6 py-24 border-t border-gray-200 dark:border-gray-800 flex justify-between items-center text-sm font-medium tracking-widest uppercase reveal">
+            <a href="viff.html" class="text-gray-500 dark:text-gray-400 hover:text-dark dark:hover:text-light transition-colors">← Previous: VIFF Digital Passport</a>
+            <a href="leze.html" class="text-gray-500 dark:text-gray-400 hover:text-dark dark:hover:text-light transition-colors">Next: Leze Instagram Kit →</a>
+        </section>
+
+    </main>
+
+    <script>
+        // Simple Intersection Observer to trigger fade-up animations on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

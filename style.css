@@ -1,0 +1,40 @@
+/* I am using this for custom CSS rules that cannot be easily done with Tailwind 
+    utility classes, such as keyframes, font imports, and scrollbar hiding.
+*/
+
+/* 1. Font Import (External) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap');
+
+/* 2. Body Font Fallback & Transition (Tailwind is already handling colors) */
+body {
+    font-family: 'Inter', sans-serif;
+    /* transition is kept here to ensure body color/bg changes are smooth */
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+/* 3. Scrollbar Hiding (For Clean Aesthetic) */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* 4. Intro Animation Keyframes  */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.intro-overlay {
+    /* Apply the animation here. It starts after 2.5s and fades out over 0.8s */
+    animation: fadeOut 0.8s ease-in-out 1s forwards;
+}
+
+/* 5. Grid Line Transition */
+.grid-line {
+    transition: opacity 0.3s ease;
+}

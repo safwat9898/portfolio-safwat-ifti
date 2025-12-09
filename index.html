@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX/UI Portfolio</title>
+    
+    <!-- 1. Load Tailwind CSS (The Framework) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Config for Dark Mode and Tailwind Customizations -->
+    <script>
+      
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Strict Black & White Palette
+                        dark: '#111111',
+                        light: '#ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- 2. main css stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts used in style.css -->
+</head>
+<body class="bg-white text-dark dark:bg-dark dark:text-light antialiased transition-colors duration-300">
+
+    <!-- 1. INTRO OVERLAY -->
+    <div id="intro" class="intro-overlay fixed inset-0 z-[100] bg-white dark:bg-dark flex items-center justify-center pointer-events-none">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tighter animate-pulse">
+                Safwat Ifti
+            </h1>
+            <p class="mt-4 text-sm font-mono opacity-60">DESIGNER</p>
+        </div>
+    </div>
+
+    <!-- 2. GRID OVERLAY (Hidden by default) -->
+    <div id="grid-overlay" class="fixed inset-0 z-0 pointer-events-none opacity-0 transition-opacity duration-300 flex justify-between px-4 md:px-12 max-w-[1920px] mx-auto w-full">
+        <!-- Vertical Grid Lines -->
+        <div class="w-px h-full bg-red-500/20"></div>
+        <div class="w-px h-full bg-red-500/20"></div>
+        <div class="w-px h-full bg-red-500/20 hidden md:block"></div>
+        <div class="w-px h-full bg-red-500/20 hidden md:block"></div>
+        <div class="w-px h-full bg-red-500/20 hidden lg:block"></div>
+        <div class="w-px h-full bg-red-500/20 hidden lg:block"></div>
+    </div>
+
+    <!-- 3. MOBILE HEADER (Visible on small screens) -->
+    <header class="md:hidden fixed top-0 w-full z-50 bg-white/90 dark:bg-dark/90 backdrop-blur border-b border-gray-200 dark:border-gray-800 p-4 flex justify-between items-center">
+        <span class="font-bold tracking-tight text-lg">SI</span>
+        <button id="mobile-menu-btn" class="p-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </header>
+
+    <!-- 4. SIDEBAR NAVIGATION (Desktop Sticky) -->
+    <aside class="hidden md:flex flex-col justify-between fixed left-0 top-0 h-screen w-64 p-8 z-40 border-r border-transparent">
+        
+        <!-- Top: Logo area name after intro -->
+        <div class="mt-2">
+            <a href="#top" class="text-2xl font-black tracking-tighter hover:opacity-50 transition-opacity">
+                SI
+            </a>
+            <p class="text-xs font-mono mt-2 opacity-60">
+                DESIGNER<br>
+                BASED IN VANCOUVER, CA
+            </p>
+        </div>
+
+        <!-- Middle-Left: Navigation -->
+        <nav class="flex flex-col space-y-4">
+             <a href="#audience" class="nav-item text-sm font-medium opacity-60 hover:opacity-100 transition-all">Audience</a>
+            <a href="about.html" class="nav-item text-sm font-medium opacity-60 hover:opacity-100 transition-all">About</a>
+            <a href="#work" class="nav-item text-sm font-medium opacity-60 hover:opacity-100 transition-all">Case Studies</a>
+             <a href="#Flow" class="nav-item text-sm font-medium opacity-60 hover:opacity-100 transition-all">My Creative Flow</a>
+            <a href="#contact" class="nav-item text-sm font-medium opacity-60 hover:opacity-100 transition-all">Contact</a>
+        </nav>
+
+        <!-- Bottom: Toggles (Theme & Grid) -->
+        <div class="flex gap-4">
+            <!-- Theme Toggle -->
+            <button id="theme-toggle" class="w-8 h-8 flex items-center justify-center border border-current rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors" title="Toggle Theme">
+                <div class="w-3 h-3 rounded-full bg-current"></div>
+            </button>
+            
+            <!-- Grid Toggle -->
+            <button id="grid-toggle" class="w-8 h-8 flex items-center justify-center border border-current rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors" title="Toggle Grid">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path d="M3 3h18v18H3z"/>
+                    <path d="M3 12h18"/>
+                    <path d="M12 3v18"/>
+                </svg>
+            </button>
+        </div>
+    </aside>
+
+    <!-- 5. MAIN CONTENT AREA -->
+    <main class="md:ml-64 p-4 md:p-12 lg:p-20 relative z-10 pt-24 md:pt-20">
+        
+        <!-- HERO / ABOUT SECTION -->
+        <section id="about" class="min-h-[60vh] flex flex-col justify-center max-w-4xl">
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold leading-tight tracking-tight mb-8">
+            I am passionate about designing work that feels purposeful, intuitive, and visually impactful.
+            </h1>
+            <p class="text-lg md:text-xl opacity-70 max-w-2xl leading-relaxed">
+                Enjoying my time in content creation these days. 
+            
+            </p>
+        </section>
+
+        <!-- PERSONA / AUDIENCE SECTION (Interactive) -->
+        <section id="audience" class="py-24 border-t border-gray-200 dark:border-gray-800">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-4">
+                    <h2 class="text-sm font-mono mb-6 uppercase tracking-widest opacity-50">For...</h2>
+                    <div class="flex flex-col items-start space-y-2">
+                        <button class="persona-btn text-2xl font-medium hover:opacity-50 transition-opacity text-left active-persona" data-target="anyone">
+                            Visitor
+                        </button>
+                        <button class="persona-btn text-2xl font-medium hover:opacity-50 transition-opacity text-left opacity-40" data-target="recruiter">
+                            Recruiter
+                        </button>
+                        <button class="persona-btn text-2xl font-medium hover:opacity-50 transition-opacity text-left opacity-40" data-target="manager">
+                            Design Director
+                        </button>
+                        <button class="persona-btn text-2xl font-medium hover:opacity-50 transition-opacity text-left opacity-40" data-target="engineer">
+                            Engineer
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-8 flex items-center">
+                    <div id="persona-content" class="text-xl md:text-3xl leading-relaxed font-light transition-all duration-300">
+                        <!-- Content injected via JS -->
+                        Welcome. Take a look around. You'll find a collection of my best work, my thoughts on design, and a bit about who I am.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK SECTION -->
+        <section id="work" class="py-24 border-t border-gray-200 dark:border-gray-800">
+            <h2 class="text-sm font-mono mb-12 uppercase tracking-widest opacity-50">Selected Case Studies</h2>
+            
+       <div class="space-y-24">
+        <!-- Project 1 (VIFF Digital Passport) -->
+        <article class="group cursor-pointer">
+
+        <a href="viff.html" class="block">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+
+            <!-- Image Area -->
+            <div class="lg:col-span-8 overflow-hidden bg-gray-100 dark:bg-gray-900 aspect-[16/9] relative">
+                
+                <img src="assets/viff/viff-cover.png" alt="VIFF Digital Passport Microsite Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+            </div>
+
+            <!-- Text Area -->
+            <div class="lg:col-span-4 pb-2">
+                <!-- 1. Title -->
+                <h3 class="text-3xl font-bold mb-2 group-hover:translate-x-2 transition-transform duration-300">VIFF Digital Passport</h3>
+                
+                <!-- 2. Impact Statement / Tagline -->
+                <p class="text-lg leading-snug opacity-80 mb-3 font-medium">
+                    Proposing an interactive microsite intervention for the Vancouver International Film Festival to boost Gen Z engagement.
+                </p>
+                
+                <!-- 3. Metadata Tags (Pill/Oval Style) -->
+                <div class="mb-6 flex flex-wrap gap-2">
+                    <!-- Reading Time Pill added here -->
+                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">6 MIN READ</span>
+                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">UI DESIGN</span>
+                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">PRODUCT DESIGN</span>
+                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">VISUAL DESIGN</span>
+                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">CONTENT STRATEGY</span>
+                </div>
+
+                <!-- The accent text is outside the <a> tag's previous function, so we style it with the accent color. -->
+                <span class="inline-block border-b border-viff_accent text-viff_accent pb-1 text-sm font-medium group-hover:opacity-50 transition-opacity">View Case Study</span>
+            </div>
+        </div>
+        </a>
+    </article>
+
+
+            
+        			<!-- Project 2 Tapestry Book-->
+        <article class="group cursor-pointer">
+
+            <a href="tapestry.html" class="block">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+
+                <!-- Image Area -->
+                <div class="lg:col-span-8 overflow-hidden bg-gray-100 dark:bg-gray-900 aspect-[16/9] relative">
+                    		
+                    		<img src="assets/tapestry/tapestry-cover.png" alt="Project 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                </div>
+
+                <!-- Text Area -->
+                <div class="lg:col-span-4 pb-2">
+                    <!-- 1. Title -->
+                    <h3 class="text-3xl font-bold mb-2 group-hover:translate-x-2 transition-transform duration-300">Tapestry Book App</h3>
+                    
+                    <!-- 2. Impact Statement / Tagline -->
+                    <p class="text-lg leading-snug opacity-80 mb-3 font-medium">
+                        Tapestry Book is a digital prototype, developed to elevate seniors’ experiences of searching for and viewing photos on their mobile phones.
+                    </p>
+                    
+                    <!-- 3. Metadata Tags (Pill/Oval Style) -->
+                    <div class="mb-6 flex flex-wrap gap-2">
+                        <!-- Reading Time Pill added here -->
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">8 MIN READ</span>
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">UX RESEARCH</span>
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">LOGO DESIGN</span>
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">PRODUCT DESIGN</span>
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">VISUAL DESIGN</span>
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">MOBILE INTERACTION</span>
+                    </div>
+
+                    <span class="inline-block border-b border-current pb-1 text-sm font-medium group-hover:opacity-50 transition-opacity">View Case Study</span>
+                </div>
+            </div>
+            </a>
+        </article>
+        			<!-- Project 3 Leze the Label-->
+        <article class="group cursor-pointer">
+
+            <a href="leze.html" class="block">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+                <div class="lg:col-span-8 overflow-hidden bg-gray-100 dark:bg-gray-900 aspect-[16/9] relative">
+                    		<!-- Image Placeholder -->
+                    		<img src="assets/Leze the label/Social Media Guideline Mockup.png" alt="Project 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                </div>
+                <!-- Text Area -->
+                <div class="lg:col-span-4 pb-2">
+                    <!-- 1. Title -->
+                    <h3 class="text-3xl font-bold mb-2 group-hover:translate-x-2 transition-transform duration-300">Leze Instagram Kit</h3>
+                    
+                    <!-- 2. Impact Statement / Tagline -->
+                    <p class="text-lg leading-snug opacity-80 mb-3 font-medium">
+                        Crafted a strategic social media branding guideline for LEZÉ the Label to unify their digital presence and support their expansion into new markets.
+                    </p>
+                    
+                    <!-- 3. Metadata Tags (Pill/Oval Style) -->
+                    <div class="mb-6 flex flex-wrap gap-2">
+                        <!-- Reading Time Pill added here -->
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">4 MIN READ</span>
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">CONTENT STRATEGY</span>
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">VISUAL DESIGN</span>
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">UX RESEARCH</span>
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">Motion Design</span>
+                    </div>
+                    
+                    <span class="inline-block border-b border-current pb-1 text-sm font-medium group-hover:opacity-50 transition-opacity">View Case Study</span>
+                </div>
+            </div>
+            </a>
+        </article>
+
+        <!-- Project 4 Rudolph Christmas Lights-->
+        <article class="group cursor-pointer">
+
+            <a href="rudolph.html" class="block">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+
+                <!-- Image Area -->
+                <div class="lg:col-span-8 overflow-hidden bg-gray-100 dark:bg-gray-900 aspect-[16/9] relative">
+                    		
+                    		<img src="assets/Rudolph/RCL cover.png" alt="Project 3 Rudolph Christmas Lights" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                </div>
+
+                <!-- Text Area -->
+                <div class="lg:col-span-4 pb-2">
+                    <!-- 1. Title -->
+                    <h3 class="text-3xl font-bold mb-2 group-hover:translate-x-2 transition-transform duration-300">Rudolph Christmas Lights</h3>
+                    
+                    <!-- 2. Impact Statement / Tagline -->
+                    <p class="text-lg leading-snug opacity-80 mb-3 font-medium">
+                        Rudolph Christmas Lights is a digital prototype, developed to elevate seniors’ experiences of searching for and viewing photos on their mobile phones.
+                    </p>
+                    
+                    <!-- 3. Metadata Tags (Pill/Oval Style) -->
+                    <div class="mb-6 flex flex-wrap gap-2">
+                        <!-- Reading Time Pill added here -->
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">7 MIN READ</span>
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">UX RESEARCH</span>
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">LOGO DESIGN</span>
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">VISUAL DESIGN</span>
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">CONTENT STRATEGY</span>
+                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">MOBILE INTERACTION</span>
+                    </div>
+
+                    <span class="inline-block border-b border-current pb-1 text-sm font-medium group-hover:opacity-50 transition-opacity">View Case Study</span>
+                </div>
+            </div>
+            </a>
+        </article>
+    </section>
+           
+   <!--Flow Section -->
+        <section id="Flow" class="py-24 border-t border-gray-200 dark:border-gray-800">
+            <h2 class="text-sm font-mono mb-12 uppercase tracking-widest opacity-50">MY CREATIVE FLOW</h2>
+
+            <div class="max-w-4xl mx-auto space-y-4">
+                <!-- ACCORDION ITEM 1 -->
+                <div class="border-b border-gray-300 dark:border-gray-700">
+                    <button class="accordion-header flex justify-between items-center w-full py-4 text-left font-normal transition-colors duration-300 hover:opacity-80 focus:outline-none">
+                        <span class="text-xl font-bold tracking-tight">1. WHAT KIND OF PROJECTS DO YOU WORK ON?</span>
+                        <svg class="chevron-icon w-6 h-6 rotate-0 transition-transform duration-300 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content hidden max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                        <p class="pb-6 text-lg opacity-70 leading-relaxed">
+                            I am an end-to-end Product Designer specializing in measurable and intuitive digital solutions. My expertise covers the full design spectrum: from user research and branding to wireframing, UX/UI design for web/mobile, and the development of interactive prototypes and scalable design systems.
+                        </p>
+                    </div>
+
+                <!-- ACCORDION ITEM 2 -->
+                <div class="border-b border-gray-300 dark:border-gray-700">
+                    <button class="accordion-header flex justify-between items-center w-full py-4 text-left font-normal transition-colors duration-300 hover:opacity-80 focus:outline-none">
+                        <span class="text-xl font-bold tracking-tight">2. WHAT TOOLS DO YOU USE IN YOUR WORKFLOW?</span>
+                        <svg class="chevron-icon w-6 h-6 rotate-0 transition-transform duration-300 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content hidden max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                        <p class="pb-6 text-lg opacity-70 leading-relaxed">
+                            My core workflow begins with foundational hand-sketching for rapid ideation. Figma serves as the central hub for all UX/UI design, design systems, and interactive prototyping across web and mobile. I use Maze for design validation and testing, and the Adobe Creative Suite (Illustrator, Photoshop, and InDesign) for visual asset creation and print collateral.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ACCORDION ITEM 3 -->
+                <div class="border-b border-gray-300 dark:border-gray-700">
+                    <button class="accordion-header flex justify-between items-center w-full py-4 text-left font-normal transition-colors duration-300 hover:opacity-80 focus:outline-none">
+                        <span class="text-xl font-bold tracking-tight">3. HOW DO YOU DEFINE A SUCCESSFUL DESIGN?</span>
+                        <svg class="chevron-icon w-6 h-6 rotate-0 transition-transform duration-300 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content hidden max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                        <p class="pb-6 text-lg opacity-70 leading-relaxed">
+                            A successful design is one that effectively meets the needs of the user (validated through usability testing) while simultaneously achieving the defined business objectives (measured by KPIs like conversion rate, task completion, or engagement).
+                        </p>
+                    </div>
+                </div>
+
+                 <!-- ACCORDION ITEM 4 -->
+                <div class="border-b border-gray-300 dark:border-gray-700">
+                    <button class="accordion-header flex justify-between items-center w-full py-4 text-left font-normal transition-colors duration-300 hover:opacity-80 focus:outline-none">
+                        <span class="text-xl font-bold tracking-tight">4. WHAT IS YOUR EXPERIENCE WITH ACCESSIBILITY (WCAG)?</span>
+                        <svg class="chevron-icon w-6 h-6 rotate-0 transition-transform duration-300 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content hidden max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                        <p class="pb-6 text-lg opacity-70 leading-relaxed">
+                            I ensure all designs adhere to WCAG standards for color contrast, typography, and clear visual hierarchy. I prioritize designing with keyboard navigation and screen-reader compatibility in mind from the wireframing stage.
+
+                        </p>
+                    </div>
+                </div>
+                        <!-- ACCORDION ITEM 5 -->
+
+                <div class="border-b border-gray-300 dark:border-gray-700">
+                  <button class="accordion-header flex justify-between items-center w-full py-4 text-left font-normal transition-colors duration-300 hover:opacity-80 focus:outline-none">
+                     <span class="text-xl font-bold tracking-tight">5. HOW DO I HANDLE FEEDBACK?</span>
+                    <svg class="chevron-icon w-6 h-6 rotate-0 transition-transform duration-300 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                     </svg>
+                </button>
+                <div class="accordion-content hidden max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                    <p class="pb-6 text-lg opacity-70 leading-relaxed">
+                        I handle feedback by actively listening, asking clarifying questions, and iterating on designs based on constructive criticism. I view feedback as an essential part of the design process that helps improve the final product.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+         
+
+        
+                
+        <!-- FOOTER / CONTACT -->
+        <section id="contact" class="py-24 border-t border-gray-200 dark:border-gray-800 mb-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Let's work together.</h2>
+                    <p class="text-lg opacity-70 mb-8">
+                        I am looking for part-time, full-time opportunities and freelance projects.
+                    </p>
+                    <a href="mailto:safwatifti@gmail.com" class="text-xl md:text-2xl font-bold border-b-2 border-current hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all px-1">
+                        safwatifti@gmail.com
+                    </a>
+                </div>
+                <div class="flex flex-col justify-end space-y-4 text-sm font-mono opacity-60">
+                    <a href="https://www.linkedin.com/in/md-safwat-qurib-ifti-2313361b9" class="hover:underline">LinkedIn ↗</a>
+                    <a href="https://drive.google.com/file/d/1OBvrenxacof_kvdZg0dCkP4luuJicjQt/view?usp=sharing" class="hover:underline">Resume ↗</a>
+                </div>
+            </div>
+            <div class="mt-20 pt-8 border-t border-gray-100 dark:border-gray-900 text-xs opacity-40 flex justify-between">
+                <span>© 2025 Safwat Ifti</span>
+                <span>Last updated: Dec 2025</span>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 3. Link JavaScript Logic (The Interactivity) -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEZÉ THE LABEL — UX Case Study</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Config for Dark Mode and Tailwind Customizations -->
+    <script>
+        // Custom color for the VIFF case study (Gold/Amber)
+        const viffAccent = '#FBBF24'; // Tailwind Amber-400 
+
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#111111', 
+                        light: '#ffffff',
+                        viff_accent: viffAccent,
+                    }
+                }
+            }
+        }
+        
+        // Simple dark mode toggle logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.classList.add(currentTheme);
+
+            const toggle = document.getElementById('theme-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    const newTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+                    localStorage.setItem('theme', newTheme);
+                });
+            }
+        });
+    </script>
+    </head>
+
+<body class="bg-white text-dark dark:bg-dark dark:text-light antialiased transition-colors duration-300 font-sans">
+<!-- HEADER / NAVIGATION -->
+
+    <header class="sticky top-0 w-full z-50 bg-white/95 dark:bg-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-lg font-bold tracking-tight hover:opacity-75 transition-opacity">
+                ← Homepage
+            </a>
+            <button id="theme-toggle" class="w-8 h-8 flex items-center justify-center border border-current rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors" title="Toggle Theme">
+                <div class="w-3 h-3 rounded-full bg-current"></div>
+            </button>
+
+        </div>
+
+    </header>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Smooth reveal animation classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom class for wider image content */
+        .wide-content {
+            max-width: 80rem; /* max-w-6xl equivalent */
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+
+    <main class="pt-32 pb-32">
+
+        <!-- 1. HERO SECTION -->
+        <section class="max-w-4xl mx-auto px-6 mb-24 reveal">
+            <h1 class="text-5xl md:text-7xl leading-tight mb-8 text-green-800">
+                LEZÉ THE LABEL
+            </h1>
+            <p class="text-xl md:text-2xl leading-relaxed text-gray-600 font-light">
+                Expanding a Women-Led Sustainable Brand Into the Male Demographic Through Social Strategy & Matching Sets.
+            </p>
+        </section>
+
+        <!-- 2. ROLES & RESULTS GRID -->
+        <section class="max-w-4xl mx-auto px-6 mb-32 reveal">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-gray-200 pt-8">
+                <div>
+                    <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-gray-400">My Role & Team</h3>
+                    <ul class="space-y-2 text-lg">
+                        <li>UX Researcher & Designer (Team of 5)</li>
+                        <li>Social Media Strategist</li>
+                        <li>Led User Interviews & Testing</li>
+                        <li>Developed "Two of a Kind" Campaign</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-gray-400">Deliverables & Impact</h3>
+                    <ul class="space-y-2 text-lg">
+                        <li>Instagram Social Media Guideline Kit</li>
+                        <li>Matching Sets Campaign Strategy</li>
+                        <li>Strengthened Brand Trust & Storytelling</li>
+                        <li>Improved visibility for the Men's Line</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. MASSIVE HERO VIDEO (NDA Sneak Peek Placeholder) -->
+        <section class="w-full mb-32 reveal">
+            <video 
+                class="w-full h-screen object-cover" 
+                autoplay 
+                muted 
+                playsinline
+                poster="https://placehold.co/1920x1080/4CAF50/FFFFFF?text=Sneak+Peek+of+the+Social+Strategy+Kit+(NDA)"
+            >
+                <!-- Using a generic video link since the actual content is NDA protected -->
+                <source src="assets/Leze the label/Social Media Guideline Sneak peek.mp4" type="video/mp4">
+               
+            </video>
+            <p class="text-center text-sm text-gray-400 mt-4 font-mono">Walkthrough: Social Strategy Kit Sneak Peek (NDA Protected)</p>
+        </section>
+
+        <!-- 4. THE CONTEXT (Narrow Text Column) -->
+        <section class="max-w-2xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">The Challenge: Expanding the Audience</h2>
+            <p class="text-lg leading-relaxed text-gray-600 mb-6">
+                LEZÉ, a sustainable brand focusing on women's work-leisure wear, faced significant barriers when launching their men's line. The primary challenge was expanding their primarily female customer base to male demographics while effectively communicating the value of their unique, sustainable materials (fishing nets, corn fiber, etc.).
+            </p>
+            <p class="text-lg leading-relaxed text-gray-600">
+                Key issues identified included low visibility of the men's collection, a trust gap concerning pricing and sustainability, and low shopper confidence due to unclear sizing and return policies online.
+            </p>
+        </section>
+
+        <!-- 5. RESEARCH & PROCESS VISUALS (Full Width, Two Columns) -->
+        <section class="w-full px-4 md:px-8 mb-32 reveal">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- LEFT COLUMN: RESEARCH FINDINGS (Image Placeholder) -->
+                <div class="aspect-[4/3] bg-gray-100 flex items-center justify-center overflow-hidden">
+                    <img 
+                        src="assets/Leze the label/UX Ethnographic poster.png" 
+                        alt="UX Ethnographic Poster" 
+                        class="cinema-image object-cover w-full h-full"
+                    >
+                </div>
+                <!-- RIGHT COLUMN: PERSONAS & JOURNEY MAPS (Image Placeholder) -->
+                <div class="aspect-[4/3] bg-gray-100 flex items-center justify-center">
+                    <img 
+                        src="assets/Leze the label/Journey Map Reflection.png" 
+                        alt="Journey Mapping" 
+                        class="cinema-image object-cover w-full h-full"
+                    >
+                </div>
+            </div>
+            <p class="text-center text-sm text-gray-400 mt-4 font-mono">Left: Synthesis of Key Ethnographic Insights. Right: Journey Map Key Reflection(face hidden for privacy).</p>
+        </section>
+
+        <!-- 6. KEY INSIGHTS (Narrow Text) -->
+        <section class="max-w-2xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">Key Insights: The Social & Trust Gaps</h2>
+            <p class="text-lg leading-relaxed text-gray-600 mb-6">
+                Our ethnographic walkthroughs and interviews with six participants revealed four main problems: 
+                <span class="font-semibold text-green-700">1) Website Navigation:</span> Men's line was buried, and essential information like returns and care instructions were hard to find.
+                <span class="font-semibold text-green-700">2) Male Shopper Alienation:</span> No visual sizing guides or promotions targeted men, making them feel ignored.
+                <span class="font-semibold text-green-700">3) Trust Gaps:</span> The use of unique sustainable materials was not clearly communicated, leading users to question the higher price point.
+                <span class="font-semibold text-green-700">4) Social Media Deficiencies:</span> The existing Instagram content lacked storytelling, brand cohesion, and educational structure.
+            </p>
+        </section>
+
+        <!-- 7. THE DESIGN SOLUTION (Narrow Text) -->
+        <section class="max-w-2xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">Strategy: The "Two of a Kind" Campaign</h2>
+            <p class="text-lg leading-relaxed text-gray-600 mb-6">
+                Based on workshop findings—which validated that women were highly likely to purchase men's products if incentivized—we reframed the design problem. The solution centered on two integrated concepts:
+            </p>
+            
+            <div class="space-y-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-2 text-green-700">Concept 1: "Two of a Kind" Matching Sets Campaign</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        This strategy leverages the primary female customer base to softly introduce the men's line. By offering couples/family matching sets and integrating personalization, we created emotional appeal and giftability, allowing LEZÉ to highlight comfort and sustainability to both genders simultaneously.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2 text-green-700">Concept 2: Instagram Social Media Guideline Kit</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        To resolve inconsistent content and weak storytelling, we created a modular kit with six core content themes (Sustainability, Fabric, Men's/Women's Line, Spotlights, Matching Sets). The kit included post and reel templates, clear messaging guides, and structured highlight systems to educate customers and reduce purchase anxiety.
+                    </p>
+                </div>
+            </div>
+        </section>
+<!-- 8. INTERACTION SHOWCASE (Video Placeholders) -->
+<section class="w-full px-4 md:px-8 mb-32 reveal">
+    <!-- MODIFICATION: Changed grid-cols-2 to grid-cols-1 to place sections one after the other (vertically stacked) -->
+    <div class="grid grid-cols-1 gap-8 max-w-7xl mx-auto">
+        <!-- LEFT COLUMN: FABRIC CARD TEMPLATE VIDEO -->
+        <div>
+            <!-- Container ensures landscape (16:9) aspect ratio -->
+            <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
+                <video 
+                    class="w-full h-full object-cover" 
+                    autoplay 
+                    loop
+                    muted 
+                    playsinline
+                    poster="https://placehold.co/1000x600/111111/FFFFFF?text=Fabric+Card+Template+Video"
+                >
+                    <source src="assets/Leze the label/Fabric Guide.mp4" type="video/mp4">
+                    
+            </div>
+            <p class="mt-4 font-bold">Educational Template: Fabric Card (Sneak Peek)</p>
+            <p class="text-gray-500 text-sm">This is to clearly communicate material facts and sustainability which is a huge part of their culture</p>
+        </div>
+        <!-- RIGHT COLUMN: MATCHING SETS REEL VIDEO -->
+        <div>
+            <!-- Container ensures landscape (16:9) aspect ratio -->
+            <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
+                <video 
+                    class="w-full h-full object-cover" 
+                    autoplay 
+                    loop
+                    muted 
+                    playsinline
+                    poster="https://placehold.co/1000x600/4CAF50/FFFFFF?text=Matching+Sets+Reel+Template+Video"
+                >
+                    <source src="assets/Leze the label/Two of a Kind- matching Sets.mp4" type="video/mp4">
+                    
+                </video>
+            </div>
+            <p class="mt-4 font-bold">"Two of a Kind" Reel Format (Sneak Peek)</p>
+            <p class="text-gray-500 text-sm">The Upcoming new Holiday Promotions</p>
+        </div>
+    </div>
+</section>
+
+        <!-- 9. IMPACT & REFLECTION (Narrow Text) -->
+        <section class="max-w-2xl mx-auto px-6 mb-32 reveal">
+            <h2 class="text-3xl md:text-4xl mb-6">Impact, Limitations, & Reflection</h2>
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Impact</h3>
+                    <p class="text-lg leading-relaxed text-gray-600">
+                        The deliverables provided the LEZÉ marketing team with increased clarity, a strong content structure, and a clear path to engage the new male demographic. For customers, the strategy promised reduced purchase anxiety and accessible education on their complex, sustainable materials.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Future Opportunities</h3>
+                    <ul class="list-disc list-inside space-y-1 text-gray-600 ml-4">
+                        <li>Full UX redesign of product pages and website navigation.</li>
+                        <li>Expansion of the social system to platforms like TikTok and YouTube Shorts.</li>
+                        <li>Development of AR fit visualization tools for sizing confidence.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Final Reflection</h3>
+                    <p class="text-lg leading-relaxed text-gray-600">
+                        This project emphasized the power of storytelling as UX. By addressing user pain points around trust and clarity through a dedicated, ethical social strategy, we created an integrated solution that helps LEZÉ grow authentically while aligning with their core values.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER NAV -->
+        <section class="max-w-4xl mx-auto px-6 py-24 border-t border-gray-100 flex justify-between items-center text-sm font-medium tracking-widest uppercase reveal">
+            <a href="tapestry.html" class="text-gray-400 hover:text-black transition-colors">← Previous: Tapestry Book App</a>
+            <a href="rudolph.html" class="text-gray-400 hover:text-black transition-colors">Next: Rudolph Christmas Lights →</a>
+        </section>
+
+    </main>
+
+    <script>
+        // Simple Intersection Observer to trigger fade-up animations on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
