@@ -89,29 +89,4 @@ mobileMenuBtn.addEventListener('click', () => {
     sidebar.classList.toggle('z-50');
 });
 
-   //-- 6. MY creative Flow Logic ---//
-    
-        document.addEventListener('DOMContentLoaded', () => {
-            const accordionHeaders = document.querySelectorAll('#Flow .accordion-header');
-
-            accordionHeaders.forEach(header => {
-                header.addEventListener('click', () => {
-                    const content = header.nextElementSibling;
-                    const chevron = header.querySelector('.chevron-icon');
-
-                    // Toggle the 'active' state on the content container
-                    content.classList.toggle('hidden');
-                    // We use max-h-0 and max-h-screen for smooth height transition
-                    content.classList.toggle('max-h-0');
-                    content.classList.toggle('max-h-screen'); 
-                    
-                    // Rotate the chevron icon
-                    chevron.classList.toggle('rotate-0');
-                    chevron.classList.toggle('-rotate-180');
-                    
-                    // Toggle font weight/color on the header for visual active state
-                    header.classList.toggle('font-normal');
-                    header.classList.toggle('font-semibold');
-                });
-            });
-        });
+  
