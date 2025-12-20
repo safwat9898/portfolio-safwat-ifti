@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Safwat Ifti</title>
-    <!-- Load Tailwind CSS -->
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -13,67 +15,76 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'], // Added for that Maurer-style headline contrast
+                        serif: ['Playfair Display', 'serif'],
                     },
                     colors: {
                         dark: '#111111',
                         light: '#ffffff',
-                        accent: '#E81C5F', // Keeping a subtle accent available if needed
+                        accent: '#E81C5F',
                     }
                 }
             }
         }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.classList.add(currentTheme);
-
-            const toggle = document.getElementById('theme-toggle');
-            if (toggle) {
-                toggle.addEventListener('click', () => {
-                    document.documentElement.classList.toggle('dark');
-                    const newTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-                    localStorage.setItem('theme', newTheme);
-                });
-            }
-        });
     </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
-        
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        h1, h2, .serif {
-            font-family: 'Playfair Display', serif;
-        }
-        .grid-line {
-            border-top: 1px solid #e5e5e5;
-        }
-        .dark .grid-line {
-            border-top: 1px solid #262626;
-        }
-        /* Sticky section headers */
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, .serif { font-family: 'Playfair Display', serif; }
+
+        .grid-line { border-top: 1px solid #e5e5e5; }
+        .dark .grid-line { border-top: 1px solid #262626; }
+
         .sticky-header {
             position: sticky;
             top: 6rem;
         }
     </style>
 </head>
+
 <body class="bg-white text-dark dark:bg-dark dark:text-light antialiased transition-colors duration-300">
 
-    <!-- HEADER / NAVIGATION -->
-    <header class="sticky top-0 w-full z-50 bg-white/95 dark:bg-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-lg font-bold tracking-tight hover:opacity-75 transition-opacity">
-                ← Homepage
-            </a>
-                <button id="theme-toggle" class="w-6 h-6 flex items-center justify-center border border-current rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors" title="Toggle Theme">
-                    <div class="w-2 h-2 rounded-full bg-current"></div>
-                </button>
-            </div>
-        </div>
-    </header>
+<!-- HEADER -->
+<header class="sticky top-0 w-full z-50 bg-white/95 dark:bg-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="text-lg font-bold tracking-tight hover:opacity-75 transition-opacity">
+            ← Homepage
+        </a>
+
+        <!-- THEME TOGGLE (MATCHES INDEX) -->
+        <button id="theme-toggle"
+            class="w-8 h-8 flex items-center justify-center border border-current rounded-full
+                   hover:bg-dark hover:text-light
+                   dark:hover:bg-light dark:hover:text-dark
+                   transition-colors"
+            title="Toggle Theme">
+
+            <!-- Sun -->
+            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg"
+                 class="w-4 h-4"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+
+            <!-- Moon -->
+            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg"
+                 class="w-4 h-4 hidden"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3
+                         7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+</header>
 
     <main class="max-w-7xl mx-auto px-6 py-24">
 
@@ -311,5 +322,38 @@
 
     </main>
 
+    <!-- SHARED THEME LOGIC -->
+<script>
+const themeToggleBtn = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement;
+const sunIcon = document.getElementById('sun-icon');
+const moonIcon = document.getElementById('moon-icon');
+
+function updateIcons() {
+    const isDark = htmlElement.classList.contains('dark');
+    sunIcon.classList.toggle('hidden', isDark);
+    moonIcon.classList.toggle('hidden', !isDark);
+}
+
+function initializeTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        htmlElement.classList.add('dark');
+    }
+    updateIcons();
+}
+
+themeToggleBtn.addEventListener('click', () => {
+    htmlElement.classList.toggle('dark');
+    localStorage.setItem(
+        'theme',
+        htmlElement.classList.contains('dark') ? 'dark' : 'light'
+    );
+    updateIcons();
+});
+
+initializeTheme();
+</script>
+    
 </body>
 </html>
