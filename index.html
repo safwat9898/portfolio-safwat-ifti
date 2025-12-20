@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UX/UI Portfolio</title>
-    
-    <!-- 1. Load Tailwind CSS (The Framework) -->
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Config for Dark Mode and Tailwind Customizations -->
+
     <script>
-      
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -19,7 +17,6 @@
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        // Strict Black & White Palette
                         dark: '#111111',
                         light: '#ffffff',
                     }
@@ -27,111 +24,107 @@
             }
         }
     </script>
-    
-    <!-- 2. main css stylesheet -->
-    <link rel="stylesheet" href="style.css">
 
-    <!-- Fonts used in style.css -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="bg-white text-dark dark:bg-dark dark:text-light antialiased transition-colors duration-300">
 
-    <!-- 1. INTRO OVERLAY -->
-    <div id="intro" class="intro-overlay fixed inset-0 z-[100] bg-white dark:bg-dark flex items-center justify-center pointer-events-none">
-        <div class="text-center">
-            <h1 class="text-4xl md:text-6xl font-black tracking-tighter animate-pulse">
-                Safwat Ifti
-            </h1>
-            <p class="mt-4 text-sm font-mono opacity-60">DESIGNER</p>
+<!-- INTRO OVERLAY -->
+<div id="intro" class="intro-overlay fixed inset-0 z-[100] bg-white dark:bg-dark flex items-center justify-center pointer-events-none">
+    <div class="text-center">
+        <h1 class="text-4xl md:text-6xl font-black tracking-tighter animate-pulse">Safwat Ifti</h1>
+        <p class="mt-4 text-sm font-mono opacity-60">DESIGNER</p>
+    </div>
+</div>
+
+<!-- GRID OVERLAY (MARGINS + GUTTERS + COLUMNS) -->
+<div id="grid-overlay" class="fixed inset-0 z-30 pointer-events-none opacity-0 transition-opacity duration-300">
+    <div class="max-w-[1920px] mx-auto h-full px-4 md:px-12">
+        <!-- Margin bounds -->
+        <div class="absolute inset-y-0 left-4 md:left-12 w-px bg-gray-400/30 dark:bg-gray-600/30"></div>
+        <div class="absolute inset-y-0 right-4 md:right-12 w-px bg-gray-400/30 dark:bg-gray-600/30"></div>
+
+        <!-- Columns + gutters -->
+        <div class="grid grid-cols-12 gap-4 h-full">
+            <!-- 12 columns -->
+            <div class="border-l border-gray-400/20 dark:border-gray-600/20"></div>
+            <div class="border-l border-gray-400/20 dark:border-gray-600/20"></div>
+            <div class="border-l border-gray-400/20 dark:border-gray-600/20"></div>
+            <div class="border-l border-gray-400/20 dark:border-gray-600/20"></div>
+            <div class="border-l border-gray-400/20 dark:border-gray-600/20"></div>
+            <div class="border-l border-gray-400/20 dark:border-gray-600/20"></div>
+            <div class="border-l border-gray-400/20 dark:border-gray-600/20"></div>
+            <div class="border-l border-gray-400/20 dark:border-gray-600/20"></div>
+            <div class="border-l border-gray-400/20 dark:border-gray-600/20"></div>
+            <div class="border-l border-gray-400/20 dark:border-gray-600/20"></div>
+            <div class="border-l border-gray-400/20 dark:border-gray-600/20"></div>
+            <div class="border-l border-gray-400/20 dark:border-gray-600/20 border-r"></div>
         </div>
     </div>
+</div>
 
-    <!-- 2. GRID OVERLAY (Hidden by default) -->
-    <div id="grid-overlay" class="fixed inset-0 z-0 pointer-events-none opacity-0 transition-opacity duration-300 flex justify-between px-4 md:px-12 max-w-[1920px] mx-auto w-full">
-        <!-- Vertical Grid Lines -->
-        <div class="w-px h-full bg-red-500/20"></div>
-        <div class="w-px h-full bg-red-500/20"></div>
-        <div class="w-px h-full bg-red-500/20 hidden md:block"></div>
-        <div class="w-px h-full bg-red-500/20 hidden md:block"></div>
-        <div class="w-px h-full bg-red-500/20 hidden lg:block"></div>
-        <div class="w-px h-full bg-red-500/20 hidden lg:block"></div>
+<!-- MOBILE HEADER -->
+<header class="md:hidden fixed top-0 w-full z-50 bg-white/90 dark:bg-dark/90 backdrop-blur border-b border-gray-200 dark:border-gray-800 p-4 flex justify-between items-center">
+    <span class="font-bold tracking-tight text-lg">SI</span>
+    <button id="mobile-menu-btn" class="p-2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+</header>
+
+<!-- SIDEBAR -->
+<aside class="hidden md:flex flex-col justify-between fixed left-0 top-0 h-screen w-64 p-8 z-40">
+    <div class="mt-2">
+        <a href="#top" class="text-2xl font-black tracking-tighter hover:opacity-50">SI</a>
+        <p class="text-xs font-mono mt-2 opacity-60">
+            DESIGNER<br>BASED IN VANCOUVER, CA
+        </p>
     </div>
 
-    <!-- 3. MOBILE HEADER (Visible on small screens) -->
-    <header class="md:hidden fixed top-0 w-full z-50 bg-white/90 dark:bg-dark/90 backdrop-blur border-b border-gray-200 dark:border-gray-800 p-4 flex justify-between items-center">
-        <span class="font-bold tracking-tight text-lg">SI</span>
-        <button id="mobile-menu-btn" class="p-2">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    <nav class="flex flex-col space-y-4">
+        <a href="#audience" class="opacity-60 hover:opacity-100">Audience</a>
+        <a href="#work" class="opacity-60 hover:opacity-100">Case Studies</a>
+        <a href="#contact" class="opacity-60 hover:opacity-100">Contact</a>
+        <a href="about.html" class="opacity-60 hover:opacity-100">About</a>
+    </nav>
+
+    <!-- TOGGLES -->
+    <div class="flex gap-4">
+        <button id="theme-toggle" class="w-8 h-8 flex items-center justify-center border border-current rounded-full">
+            <svg id="sun-icon" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+            </svg>
+            <svg id="moon-icon" class="w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
         </button>
-    </header>
 
-    <!-- 4. SIDEBAR NAVIGATION (Desktop Sticky) -->
-    <aside class="hidden md:flex flex-col justify-between fixed left-0 top-0 h-screen w-64 p-8 z-40 border-r border-transparent">
-        
-        <!-- Top: Logo area name after intro -->
-        <div class="mt-2">
-            <a href="#top" class="text-2xl font-black tracking-tighter hover:opacity-50 transition-opacity">
-                SI
-            </a>
-            <p class="text-xs font-mono mt-2 opacity-60">
-                DESIGNER<br>
-                BASED IN VANCOUVER, CA
-            </p>
-        </div>
+        <button id="grid-toggle" class="w-8 h-8 flex items-center justify-center border border-current rounded-full">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18"></rect>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+                <line x1="15" y1="3" x2="15" y2="21"></line>
+            </svg>
+        </button>
+    </div>
+</aside>
 
-        <!-- Middle-Left: Navigation -->
-        <nav class="flex flex-col space-y-4">
-             <a href="#audience" class="nav-item text-sm font-medium opacity-60 hover:opacity-100 transition-all">Audience</a>
-            <a href="#work" class="nav-item text-sm font-medium opacity-60 hover:opacity-100 transition-all">Case Studies</a>    
-            <a href="#contact" class="nav-item text-sm font-medium opacity-60 hover:opacity-100 transition-all">Contact</a>
-            <a href="about.html" class="nav-item text-sm font-medium opacity-60 hover:opacity-100 transition-all">About</a>
-        </nav>
-<!-- Bottom: Toggles (Theme & Grid) -->
-        <div class="flex gap-4">
-            <!-- Theme Toggle -->
-            <button id="theme-toggle" class="w-8 h-8 flex items-center justify-center border border-current rounded-full hover:bg-dark hover:text-light dark:hover:bg-light dark:hover:text-dark transition-colors" title="Toggle Theme">
-                <!-- Sun Icon -->
-                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                </svg>
-                <!-- Moon Icon (Hidden by default) -->
-                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-            </button>
-            
-            <!-- Grid Toggle -->
-            <button id="grid-toggle" class="w-8 h-8 flex items-center justify-center border border-current rounded-full hover:bg-dark hover:text-light dark:hover:bg-light dark:hover:text-dark transition-colors" title="Toggle Grid">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="9" y1="3" x2="9" y2="21"></line>
-                    <line x1="15" y1="3" x2="15" y2="21"></line>
-                </svg>
-            </button>
-        </div>
-    </aside>
+<!-- MAIN CONTENT -->
+<main class="md:ml-64 p-4 md:p-12 lg:p-20 pt-24 md:pt-20 relative z-10">
 
-<!-- 5. MAIN CONTENT AREA -->
-    <main class="md:ml-64 p-4 md:p-12 lg:p-20 relative z-10 pt-24 md:pt-20">
-        
-        <!-- HERO / ABOUT SECTION -->
-        <section id="about" class="min-h-[60vh] flex flex-col justify-center max-w-4xl">
-            <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold leading-tight tracking-tight mb-8">
+    <!-- HERO -->
+    <section class="min-h-[60vh] flex flex-col justify-center max-w-4xl">
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold leading-tight tracking-tight mb-8">
             I am passionate about designing work that feels<br>
-                <span class="italic opacity-60">purposeful, intuitive, and visually impactful.</span>
-            </h1>
-            <p class="text-lg md:text-xl opacity-70 max-w-2xl leading-relaxed">
-                Enjoying my time in content creation these days. 
-            
-            </p>
-        </section>
+            <span class="italic opacity-60">purposeful, intuitive, and visually impactful.</span>
+        </h1>
+        <p class="text-lg md:text-xl opacity-70 max-w-2xl leading-relaxed">
+            Enjoying my time in content creation these days.
+        </p>
+    </section>
 
         <!-- PERSONA / AUDIENCE SECTION (Interactive) -->
         <section id="audience" class="py-24 border-t border-gray-200 dark:border-gray-800">
@@ -167,166 +160,134 @@
         <section id="work" class="py-24 border-t border-gray-200 dark:border-gray-800">
             <h2 class="text-sm font-mono mb-12 uppercase tracking-widest opacity-50">Selected Case Studies</h2>
             
-       <div class="space-y-24">
-        <!-- Project 1 (VIFF Digital Passport) -->
-        <article class="group cursor-pointer">
-
-        <a href="viff.html" class="block">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-
-            <!-- Image Area -->
-            <div class="lg:col-span-8 overflow-hidden bg-gray-100 dark:bg-gray-900 aspect-[16/9] relative">
+            <!-- ✅ CHANGE: added id and kept your original classes -->
+            <div id="projects-wrapper" class="space-y-24 transition-all duration-300">
                 
-                <img src="assets/viff/viff-cover.png" alt="VIFF Digital Passport Microsite Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                <!-- Project 1 (VIFF Digital Passport) -->
+                <article class="group cursor-pointer">
+                    <a href="viff.html" class="block">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+
+                            <!-- Image Area -->
+                            <div class="lg:col-span-8 overflow-hidden bg-gray-100 dark:bg-gray-900 aspect-[16/9] relative">
+                                <img src="assets/viff/viff-cover.png" alt="VIFF Digital Passport Microsite Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                            </div>
+
+                            <!-- Text Area -->
+                            <div class="lg:col-span-4 pb-2">
+                                <h3 class="text-3xl font-bold mb-2 group-hover:translate-x-2 transition-transform duration-300">VIFF Digital Passport</h3>
+                                
+                                <p class="text-lg leading-snug opacity-80 mb-3 font-medium">
+                                    Proposing an interactive microsite intervention for the Vancouver International Film Festival to boost Gen Z engagement.
+                                </p>
+                                
+                                <div class="mb-6 flex flex-wrap gap-2">
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">6 MIN READ</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">UI DESIGN</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">PRODUCT DESIGN</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">VISUAL DESIGN</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">CONTENT STRATEGY</span>
+                                </div>
+
+                                <span class="inline-block border-b border-viff_accent text-viff_accent pb-1 text-sm font-medium group-hover:opacity-50 transition-opacity">View Case Study</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Project 2 Tapestry Book-->
+                <article class="group cursor-pointer">
+                    <a href="tapestry.html" class="block">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+                            <div class="lg:col-span-8 overflow-hidden bg-gray-100 dark:bg-gray-900 aspect-[16/9] relative">
+                                <img src="assets/tapestry/tapestry-cover.png" alt="Project 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                            </div>
+
+                            <div class="lg:col-span-4 pb-2">
+                                <h3 class="text-3xl font-bold mb-2 group-hover:translate-x-2 transition-transform duration-300">Tapestry Book App</h3>
+                                
+                                <p class="text-lg leading-snug opacity-80 mb-3 font-medium">
+                                    Tapestry Book is a digital prototype, developed to elevate seniors’ experiences of searching for and viewing photos on their mobile phones.
+                                </p>
+                                
+                                <div class="mb-6 flex flex-wrap gap-2">
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">8 MIN READ</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">UX RESEARCH</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">LOGO DESIGN</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">PRODUCT DESIGN</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">VISUAL DESIGN</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">MOBILE INTERACTION</span>
+                                </div>
+
+                                <span class="inline-block border-b border-current pb-1 text-sm font-medium group-hover:opacity-50 transition-opacity">View Case Study</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Project 3 Leze the Label-->
+                <article class="group cursor-pointer">
+                    <a href="leze.html" class="block">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+                            <div class="lg:col-span-8 overflow-hidden bg-gray-100 dark:bg-gray-900 aspect-[16/9] relative">
+                                <img src="assets/Leze the label/Social Media Guideline Mockup.png" alt="Project 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                            </div>
+
+                            <div class="lg:col-span-4 pb-2">
+                                <h3 class="text-3xl font-bold mb-2 group-hover:translate-x-2 transition-transform duration-300">Leze Instagram Kit</h3>
+                                
+                                <p class="text-lg leading-snug opacity-80 mb-3 font-medium">
+                                    Crafted a strategic social media branding guideline for LEZÉ the Label to unify their digital presence and support their expansion into new markets.
+                                </p>
+                                
+                                <div class="mb-6 flex flex-wrap gap-2">
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">7 MIN READ</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">CONTENT STRATEGY</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">VISUAL DESIGN</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">UX RESEARCH</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">Motion Design</span>
+                                </div>
+                                
+                                <span class="inline-block border-b border-current pb-1 text-sm font-medium group-hover:opacity-50 transition-opacity">View Case Study</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Project 4 Rudolph Christmas Lights-->
+                <article class="group cursor-pointer">
+                    <a href="rudolph.html" class="block">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+
+                            <div class="lg:col-span-8 overflow-hidden bg-gray-100 dark:bg-gray-900 aspect-[16/9] relative">
+                                <img src="assets/Rudolph/RCL cover.png" alt="Project 3 Rudolph Christmas Lights" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                            </div>
+
+                            <div class="lg:col-span-4 pb-2">
+                                <h3 class="text-3xl font-bold mb-2 group-hover:translate-x-2 transition-transform duration-300">Rudolph Christmas Lights</h3>
+                                
+                                <p class="text-lg leading-snug opacity-80 mb-3 font-medium">
+                                    Rudolph Christmas Lights is a digital prototype, developed to elevate seniors’ experiences of searching for and viewing photos on their mobile phones.
+                                </p>
+                                
+                                <div class="mb-6 flex flex-wrap gap-2">
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">6 MIN READ</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">UX RESEARCH</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">LOGO DESIGN</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">VISUAL DESIGN</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">CONTENT STRATEGY</span>
+                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">MOBILE INTERACTION</span>
+                                </div>
+
+                                <span class="inline-block border-b border-current pb-1 text-sm font-medium group-hover:opacity-50 transition-opacity">View Case Study</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
             </div>
+        </section>
 
-            <!-- Text Area -->
-            <div class="lg:col-span-4 pb-2">
-                <!-- 1. Title -->
-                <h3 class="text-3xl font-bold mb-2 group-hover:translate-x-2 transition-transform duration-300">VIFF Digital Passport</h3>
-                
-                <!-- 2. Impact Statement / Tagline -->
-                <p class="text-lg leading-snug opacity-80 mb-3 font-medium">
-                    Proposing an interactive microsite intervention for the Vancouver International Film Festival to boost Gen Z engagement.
-                </p>
-                
-                <!-- 3. Metadata Tags (Pill/Oval Style) -->
-                <div class="mb-6 flex flex-wrap gap-2">
-                    <!-- Reading Time Pill added here -->
-                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">6 MIN READ</span>
-                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">UI DESIGN</span>
-                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">PRODUCT DESIGN</span>
-                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">VISUAL DESIGN</span>
-                    <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">CONTENT STRATEGY</span>
-                </div>
-
-                <!-- The accent text is outside the <a> tag's previous function, so we style it with the accent color. -->
-                <span class="inline-block border-b border-viff_accent text-viff_accent pb-1 text-sm font-medium group-hover:opacity-50 transition-opacity">View Case Study</span>
-            </div>
-        </div>
-        </a>
-    </article>
-
-
-            
-        			<!-- Project 2 Tapestry Book-->
-        <article class="group cursor-pointer">
-
-            <a href="tapestry.html" class="block">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-
-                <!-- Image Area -->
-                <div class="lg:col-span-8 overflow-hidden bg-gray-100 dark:bg-gray-900 aspect-[16/9] relative">
-                    		
-                    		<img src="assets/tapestry/tapestry-cover.png" alt="Project 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
-                </div>
-
-                <!-- Text Area -->
-                <div class="lg:col-span-4 pb-2">
-                    <!-- 1. Title -->
-                    <h3 class="text-3xl font-bold mb-2 group-hover:translate-x-2 transition-transform duration-300">Tapestry Book App</h3>
-                    
-                    <!-- 2. Impact Statement / Tagline -->
-                    <p class="text-lg leading-snug opacity-80 mb-3 font-medium">
-                        Tapestry Book is a digital prototype, developed to elevate seniors’ experiences of searching for and viewing photos on their mobile phones.
-                    </p>
-                    
-                    <!-- 3. Metadata Tags (Pill/Oval Style) -->
-                    <div class="mb-6 flex flex-wrap gap-2">
-                        <!-- Reading Time Pill added here -->
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">8 MIN READ</span>
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">UX RESEARCH</span>
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">LOGO DESIGN</span>
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">PRODUCT DESIGN</span>
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">VISUAL DESIGN</span>
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">MOBILE INTERACTION</span>
-                    </div>
-
-                    <span class="inline-block border-b border-current pb-1 text-sm font-medium group-hover:opacity-50 transition-opacity">View Case Study</span>
-                </div>
-            </div>
-            </a>
-        </article>
-        			<!-- Project 3 Leze the Label-->
-        <article class="group cursor-pointer">
-
-            <a href="leze.html" class="block">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-                <div class="lg:col-span-8 overflow-hidden bg-gray-100 dark:bg-gray-900 aspect-[16/9] relative">
-                    		<!-- Image Placeholder -->
-                    		<img src="assets/Leze the label/Social Media Guideline Mockup.png" alt="Project 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
-                </div>
-                <!-- Text Area -->
-                <div class="lg:col-span-4 pb-2">
-                    <!-- 1. Title -->
-                    <h3 class="text-3xl font-bold mb-2 group-hover:translate-x-2 transition-transform duration-300">Leze Instagram Kit</h3>
-                    
-                    <!-- 2. Impact Statement / Tagline -->
-                    <p class="text-lg leading-snug opacity-80 mb-3 font-medium">
-                        Crafted a strategic social media branding guideline for LEZÉ the Label to unify their digital presence and support their expansion into new markets.
-                    </p>
-                    
-                    <!-- 3. Metadata Tags (Pill/Oval Style) -->
-                    <div class="mb-6 flex flex-wrap gap-2">
-                        <!-- Reading Time Pill added here -->
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">7 MIN READ</span>
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">CONTENT STRATEGY</span>
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">VISUAL DESIGN</span>
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">UX RESEARCH</span>
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">Motion Design</span>
-                    </div>
-                    
-                    <span class="inline-block border-b border-current pb-1 text-sm font-medium group-hover:opacity-50 transition-opacity">View Case Study</span>
-                </div>
-            </div>
-            </a>
-        </article>
-
-        <!-- Project 4 Rudolph Christmas Lights-->
-        <article class="group cursor-pointer">
-
-            <a href="rudolph.html" class="block">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-
-                <!-- Image Area -->
-                <div class="lg:col-span-8 overflow-hidden bg-gray-100 dark:bg-gray-900 aspect-[16/9] relative">
-                    		
-                    		<img src="assets/Rudolph/RCL cover.png" alt="Project 3 Rudolph Christmas Lights" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100">
-                </div>
-
-                <!-- Text Area -->
-                <div class="lg:col-span-4 pb-2">
-                    <!-- 1. Title -->
-                    <h3 class="text-3xl font-bold mb-2 group-hover:translate-x-2 transition-transform duration-300">Rudolph Christmas Lights</h3>
-                    
-                    <!-- 2. Impact Statement / Tagline -->
-                    <p class="text-lg leading-snug opacity-80 mb-3 font-medium">
-                        Rudolph Christmas Lights is a digital prototype, developed to elevate seniors’ experiences of searching for and viewing photos on their mobile phones.
-                    </p>
-                    
-                    <!-- 3. Metadata Tags (Pill/Oval Style) -->
-                    <div class="mb-6 flex flex-wrap gap-2">
-                        <!-- Reading Time Pill added here -->
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">6 MIN READ</span>
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">UX RESEARCH</span>
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">LOGO DESIGN</span>
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">VISUAL DESIGN</span>
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">CONTENT STRATEGY</span>
-                        <span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 uppercase tracking-wide">MOBILE INTERACTION</span>
-                    </div>
-
-                    <span class="inline-block border-b border-current pb-1 text-sm font-medium group-hover:opacity-50 transition-opacity">View Case Study</span>
-                </div>
-            </div>
-            </a>
-        </article>
-    </section>
-           
-  
-         
-
-        
-                
         <!-- FOOTER / CONTACT -->
         <section id="contact" class="py-24 border-t border-gray-200 dark:border-gray-800 mb-20">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -352,7 +313,7 @@
 
     </main>
 
-    <!-- 3. Link JavaScript Logic (The Interactivity) -->
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
