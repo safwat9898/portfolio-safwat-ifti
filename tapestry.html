@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tapestry Book App — Case Study</title>
-    
+
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Config for Dark Mode and Tailwind Customizations -->
+
+    <!-- Tailwind Config -->
     <script>
-        // Custom color for the Tapestry case study (brownish accent)
-        const tapestryAccent = '#43211a'; 
+        const tapestryAccent = '#43211a';
 
         tailwind.config = {
             darkMode: 'class',
@@ -21,118 +20,88 @@
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        dark: '#111111', 
+                        dark: '#111111',
                         light: '#ffffff',
                         tapestry_accent: tapestryAccent,
                     }
                 }
             }
         }
-        
-        // Simple dark mode toggle logic
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.classList.add(currentTheme);
-
-            const toggle = document.getElementById('theme-toggle');
-            if (toggle) {
-                toggle.addEventListener('click', () => {
-                    document.documentElement.classList.toggle('dark');
-                    const newTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-                    localStorage.setItem('theme', newTheme);
-                });
-            }
-        });
     </script>
-    </head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+</head>
 
 <body class="bg-white text-dark dark:bg-dark dark:text-light antialiased transition-colors duration-300 font-sans">
-<!-- HEADER / NAVIGATION -->
 
-    <header class="sticky top-0 w-full z-50 bg-white/95 dark:bg-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+<!-- HEADER -->
+<header class="sticky top-0 w-full z-50 bg-white/95 dark:bg-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="text-lg font-bold tracking-tight hover:opacity-75 transition-opacity">
+            ← Homepage
+        </a>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-lg font-bold tracking-tight hover:opacity-75 transition-opacity">
-                ← Homepage
-            </a>
-            <button id="theme-toggle" class="w-8 h-8 flex items-center justify-center border border-current rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors" title="Toggle Theme">
-                <div class="w-3 h-3 rounded-full bg-current"></div>
-            </button>
+        <!-- CONSISTENT THEME TOGGLE -->
+        <button
+            id="theme-toggle"
+            class="w-8 h-8 flex items-center justify-center border border-current rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
+            title="Toggle theme"
+        >
+            <!-- Sun -->
+            <svg id="sun-icon" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
 
-        </div>
+            <!-- Moon -->
+            <svg id="moon-icon" class="w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+</header>
 
-    </header>
+<main class="pt-32 pb-32">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
+    <!-- HERO -->
+    <section class="max-w-4xl mx-auto px-6 mb-24">
+        <h1 class="text-5xl md:text-7xl leading-tight mb-8">
+            Tapestry Book App
+        </h1>
+        <p class="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-300 font-light">
+            A memory-aid and social platform designed to reduce isolation among seniors aged 65+.
+        </p>
+    </section>
 
-        /* Smooth reveal animation classes */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Custom class for the massive images */
-        .cinema-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            background-color: #f3f4f6; /* Placeholder gray */
-        }
-    </style>
-    
-
-    <main class="pt-32 pb-32">
-
-        <!-- 1. HERO SECTION -->
-        <section class="max-w-4xl mx-auto px-6 mb-24 reveal">
-            <h1 class="text-5xl md:text-7xl leading-tight mb-8">
-                Tapestry Book App
-            </h1>
-            <p class="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-300 font-light">
-                Tapestry is a mobile application designed to combat social isolation and loneliness by creating a memory aid and social platform for seniors aged 65 and above.
-            </p>
-            <a href="https://cloud.protopie.io/p/44d34ff26cc9fc6197c2d8a7?ui=true&scaleToFit=true&enableHotspotHints=true&cursorType=touch&mockup=true&bgColor=%23F5F5F5&playSpeed=1" class="inline-block mt-8 px-6 py-3 text-lg font-semibold bg-tapestry_accent text-white rounded-lg shadow-xl hover:bg-indigo-900 transition-colors">
-                View Prototype
-            </a>
-        </section>
-
-        <!-- 2. ROLES & RESULTS GRID -->
-        <section class="max-w-4xl mx-auto px-6 mb-32 reveal">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-gray-200 pt-8">
-                <div>
-                    <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-gray-400 dark:text-gray-500">My Role</h3>
-                    <ul class="space-y-2 text-lg">
-                        <li>UX Research</li>
-                        <li>Logo Design</li>
-                        <li>Visual Design</li>
-                        <li>Wireframing</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-gray-400 dark:text-gray-500">Project Overview</h3>
-                    <ul class="space-y-2 text-lg">
-                        <li>Timeline: June - July 2023 (8 Weeks)</li>
-                        <li>Team: Jae Eun Kim, Md Safwat Qurib Ifti,  Valeriya Ten</li>
-                        <li>Tools: Figma, Protopie, Adobe Illustrator</li>
-                    </ul>
-                </div>
+    <!-- ROLES & OVERVIEW -->
+    <section class="max-w-4xl mx-auto px-6 mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-gray-200 dark:border-gray-800 pt-8">
+            <div>
+                <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-gray-400 dark:text-gray-500">My Role</h3>
+                <ul class="space-y-2 text-lg">
+                    <li>UX Research</li>
+                    <li>UI Design</li>
+                    <li>Prototyping</li>
+                    <li>Interaction Design</li>
+                </ul>
             </div>
-        </section>
+            <div>
+                <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-gray-400 dark:text-gray-500">Project Overview</h3>
+                <ul class="space-y-2 text-lg">
+                    <li>Timeline: 8 Weeks</li>
+                    <li>Team: Academic Project</li>
+                    <li>Tools: Figma, Protopie</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
        <!-- 3. MASSIVE HERO VIDEO (Placeholder) -->
         <section class="w-full mb-32 reveal">
@@ -149,7 +118,7 @@
                 >
                      <!-- REPLACE THIS SOURCE WITH YOUR VIDEO URL/PATH -->
                     <source src="assets/tapestry/Tapestry Mobile App Walkthrough.mp4" type="video/mp4">
-                    
+                    Your browser does not support the video tag.
                 </video>
             </div>
             <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 font-mono">Complete Mobile App Walkthrough</p>
@@ -365,5 +334,6 @@
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         });
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
